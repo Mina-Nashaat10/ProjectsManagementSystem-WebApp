@@ -1,0 +1,58 @@
+﻿
+@model WebApplication2.Models.Project
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/homepage.cshtml";
+}
+
+
+<body>
+
+    <div class="container">
+        <div class="single">
+            <div class="col-md-9 single_right">
+                <p>@Html.DisplayFor(model => model.Post_Description)</p>
+
+                @{
+                    Session["id"] = Model.Post_ID;
+                }
+
+                @{
+                    Session["id"] = Html.DisplayFor(model => model.Post_ID);
+                }
+
+                @Html.ActionLink("Comment", "show_comments", "Comment")
+
+
+
+
+                <br />
+                
+                @if (Session["roleid"].Equals("4"))
+                {
+                    <form action="~/Comment/Add_Comment" method="post">
+                        <input type="hidden" name="pid" value=@Html.DisplayFor(model => model.Post_ID)>
+                        <div class="text">
+                            <textarea name="cdescription" value="Message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message</textarea>
+                        </div>
+                        <div class="form-submit1">
+                       
+                            <input name="submit" type="submit" id="submit" value="Submit"><br>
+                            
+                        </div>
+                        <div class="clearfix"></div>
+                    </form>
+                                }
+
+            </div>
+
+
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+
+
+</body>
+
+

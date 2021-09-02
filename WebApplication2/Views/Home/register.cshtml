@@ -1,0 +1,136 @@
+﻿@model WebApplication2.Models.Role
+
+@{
+    ViewBag.Title = "logout";
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>Registeration To PMS Website</title>
+    <!-- Favicon-->
+    <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+    <!-- Bootstrap Core Css -->
+    <link href="~/Content/bootstrap4.css" rel="stylesheet">
+    <!-- Waves Effect Css -->
+    <link href="~/Content/waves.css" rel="stylesheet" />
+    <!-- Animation Css -->
+    <link href="~/Content/animate1.css" rel="stylesheet" />
+    <!-- Custom Css -->
+    <link href="~/Content/style2.css" rel="stylesheet">
+</head>
+<body class="signup-page">
+    <div class="signup-box">
+        <div class="logo">
+            <a href="javascript:void(0);">Registeration Form</a>
+        </div>
+        <div class="card">  
+            <div class="body">
+                <form id="sign_up" method="POST">
+                    <div class="msg">Register a new membership</div>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">person</i>
+                        </span>
+                        <div class="form-line">
+                            <input type="text" class="form-control" name="firstname" placeholder="First Name" required autofocus>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">person</i>
+                        </span>
+                        <div class="form-line">
+                            <input type="text" class="form-control" name="lastname" placeholder="Last Name" required autofocus>
+                        </div>
+                    </div>
+
+
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">email</i>
+                        </span>
+                        <div class="form-line">
+                            <input type="email" class="form-control" name="email" placeholder="Email Address" required>
+                        </div>
+                    </div>
+
+
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">lock</i>
+                        </span>
+                        <div class="form-line">
+                            <input type="password" class="form-control" name="password" minlength="6" placeholder="Password" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">phone</i>
+                        </span>
+                        <div class="form-line">
+                            <input type="number" class="form-control" name="mobile" minlength="6" placeholder="Mobile Number" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">work</i>
+                        </span>
+                        <div class="form-line">
+                            <textarea  class="form-control" name="job" minlength="6" placeholder="Enter Job Description" required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">image</i>
+                        </span>
+                        <div class="form-line">
+                            <input type="file" class="form-control" name="photo" minlength="6" placeholder="Photo Path" required>
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">person</i>
+                        </span>
+                        <div class="form-line">
+                            <select class="form-control"  name="ActorType">
+                                <option>Select Actor Type</option>
+                                @foreach (var item in ViewBag.Actors)
+                                {
+                                    <option class="form-control">@item.rname</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">SIGN UP</button>
+                    <div class="m-t-25 m-b--5 align-center">
+                        @Html.ActionLink("You already have a membership?","login")
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Jquery Core Js -->
+    <script src="~/Scripts/jquery1.min.js"></script>
+    <!-- Bootstrap Core Js -->
+    <script src="~/Scripts/bootstrap5.js"></script>
+    <!-- Waves Effect Plugin Js -->
+    <script src="~/Scripts/waves.js"></script>
+    <!-- Validation Plugin Js -->
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <!-- Custom Js -->
+    <script src="~/Scripts/admin.js"></script>
+    <script src="~/Scripts/sign-up.js"></script>
+</body>
+</html>

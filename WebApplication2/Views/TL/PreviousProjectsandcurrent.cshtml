@@ -1,0 +1,114 @@
+﻿@model WebApplication2.Models.PreProject
+@{
+    ViewBag.Title = "PreviousProjects";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int i = 0;
+    int j = 0;
+}
+
+
+<h2 style="color:white;text-transform:capitalize;margin-left:10px;">Previous Projects For  @Session["actorname"]</h2>
+<table class="table table-bordered table-hover table-responsive">
+    <tr style="text-transform:capitalize">
+        <th style="text-align:center">Project ID</th>
+        <th style="text-align:center">Project Description</th>
+        <th style="text-align:center">PM_Name</th>
+        <th style="text-align:center">Customer_Name</th>
+        <th style="text-align:center">Juner Developers</th>
+        <th style="text-align:center">Evaluation</th>
+        <th style="text-align:center">End Date</th>
+    </tr>
+    @foreach (var item in ViewBag.allprojects)
+    {
+        <tr style="text-transform:capitalize">
+            <td style="text-align: center">@item.Post_ID</td>
+            <td style="text-align: center">@item.Post_Description</td>
+            <td style="text-align: center">
+                @for (int x = i; x <= j; x++)
+                {
+                    @ViewBag.team[i].PM_FirstName <wbr />
+                    @ViewBag.team[i].PM_LastName
+                }
+            </td>
+            <td style="text-align: center">
+                @for (int x = i; x <= j; x++)
+                {
+                    @ViewBag.customers[i].Cust_FirstName<wbr />
+                    @ViewBag.customers[i].Cust_LastName
+                }
+            </td>
+
+            <td style="text-align: center">
+                @{
+                    for (int a = i; a <= j; a++)
+                    {
+                        for (int b = 0; b < ViewBag.countjds[a]; b++)
+                        {
+                            @ViewBag.namejds[a, b]<wbr /><b>,</b>
+                        }
+                    }
+                }
+            </td>
+
+            <td style="text-align: center">@item.evaluation</td>
+            <td style="text-align: center">@item.EndData</td>
+        </tr>
+                        i++;
+                        j++;
+                    }
+</table>
+@{
+    i = 0;
+    j = 0;
+}
+<br />
+<br />
+@**@
+<h2 style="color: white; text-transform: capitalize;margin-left:10px;">Current Projects For  @Session["actorname"]</h2>
+<table class="table table-bordered table-hover table-responsive">
+    <tr style="text-transform:capitalize">
+        <th style="text-align:center">Project ID</th>
+        <th style="text-align:center">Project Description</th>
+        <th style="text-align:center">PM_Name</th>
+        <th style="text-align:center">Customer_Name</th>
+        <th style="text-align:center">Juner Developers</th>
+        <th style="text-align:center">Start_Date</th>
+        <th style="text-align:center">DeadLine</th>
+    </tr>
+    @foreach (var item in ViewBag.allprojects1)
+    {
+        <tr style="text-transform:capitalize">
+            <td style="text-align: center">@item.Post_ID</td>
+            <td style="text-align: center">@item.Post_Description</td>
+            <td style="text-align: center">
+                @for (int x = i; x <= j; x++)
+                {
+                    @ViewBag.team1[i].PM_FirstName <wbr />
+                    @ViewBag.team1[i].PM_LastName
+                }
+            </td>
+            <td style="text-align: center">
+                @for (int x = i; x <= j; x++)
+                {
+                    @ViewBag.customers1[i].Cust_FirstName<wbr />
+                    @ViewBag.customers1[i].Cust_LastName
+                }
+            </td>
+            <td style="text-align: center">
+                @{
+                    for (int a = i; a <= j; a++)
+                    {
+                        for (int b = 0; b < ViewBag.countjds1[a]; b++)
+                        {
+                            @ViewBag.namejds1[a, b]<wbr /><b>,</b>
+                        }
+                    }
+                }
+            </td>
+            <td style="text-align: center">@item.Start_Date</td>
+            <td style="text-align: center">@item.DeadLine</td>
+        </tr>
+                        i++;
+                        j++;
+                    }
+</table>

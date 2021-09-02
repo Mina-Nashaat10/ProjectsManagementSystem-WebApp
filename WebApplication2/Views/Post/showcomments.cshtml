@@ -1,0 +1,44 @@
+﻿@model IEnumerable<WebApplication2.Models.Comment>
+@{
+    ViewBag.Title = "showcomments";
+    Layout = "~/Views/Shared/homepage.cshtml";
+}
+
+<div class="comments">
+    <h6>Comments</h6>
+
+
+
+    @foreach (var item in Model)
+    {
+        <div class="media media_1">
+            <div class="media-left"><a href="#"> </a></div>
+            <div class="media-body">
+                <h4 class="media-heading"><a class="author" href="#">Sollicitudin</a><a class="reply" href="#">Reply</a><div class="clearfix"> </div></h4>
+                @Html.DisplayFor(modelItem => item.cdescription)
+
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+
+        <table>
+
+            <tr>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.coid }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.coid })
+                </td>
+            </tr>
+
+        </table>
+
+    }
+    <!--
+    <div class="media">
+        <div class="media-left"><a href="#"> </a></div>
+        <div class="media-body">
+            <h4 class="media-heading"><a class="author" href="#">Sollicitudin</a><a class="reply" href="#">Reply</a><div class="clearfix"> </div></h4>
+            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+        </div>
+        -->
+</div>

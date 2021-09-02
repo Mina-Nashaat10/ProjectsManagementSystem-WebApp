@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "sendNotToTeamLeader";
+    Layout = "~/Views/Shared/_SearchLayout.cshtml";
+}
+
+<!DocType html>
+<html>
+<head>
+
+</head>
+<body>
+    <form id="sign_in" action="sendNotifications" method="POST" style="margin: 0 auto; text-align: center; ">
+        <center>
+            <div class="form-line">
+                <br />
+                <select class="form-control" name="postdes" style="width: 70%; text-align-last: center; text-align: center; ">
+                    <option>Select Project Description</option>
+                    @foreach (var item in ViewBag.allprojects)
+                    {
+                        <option class="form-control">@item.Post_Description</option>
+                    }
+                </select>
+            </div>
+        </center>
+        <br />
+        <div class="form-group">
+            <label for="formGroupExampleInput" style="font-size:20px">Message</label>
+            <center>
+                <input style="width: 70%; " type="text" class="form-control" name="message" id="formGroupExampleInput" placeholder="Example input" maxlength="40">
+            </center>
+        </div>
+        <button style="padding: 5px 20px 5px 20px; margin-bottom: 10px; font-size: 17px" type="submit" class="btn btn-primary mb-40">Send</button>
+    </form>
+
+
+
+</body>
+</html>

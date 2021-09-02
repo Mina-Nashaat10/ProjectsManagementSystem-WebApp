@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="49218ea6912845e8ac875b46b9d3222c" Name="Diagram1">
+        <EntityTypeShape EntityType="PMSDBModel.Admin" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSDBModel.Comment" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSDBModel.CurrentProject" Width="1.5" PointX="6" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSDBModel.Customer" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSDBModel.JdCurrentProject" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSDBModel.JdPreProject" Width="1.5" PointX="5.25" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSDBModel.JuniorDeveloper" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSDBModel.PreProject" Width="1.5" PointX="8.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSDBModel.Project" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSDBModel.ProjectManager" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSDBModel.Role" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSDBModel.sysdiagram" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSDBModel.TeamLeader" Width="1.5" PointX="3.75" PointY="13.25" IsExpanded="true" />
+        <AssociationConnector Association="PMSDBModel.FK_Comment_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSDBModel.FK_Comment_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSDBModel.FK_Comment_ProjectManager" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSDBModel.FK_CurrentProject_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSDBModel.FK_CurrentProject_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSDBModel.FK_CurrentProject_ProjectManager" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSDBModel.FK_CurrentProject_TeamLeader" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSDBModel.FK_Project_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSDBModel.FK_JdCurrentProject_JuniorDeveloper" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSDBModel.FK_JdCurrentProject_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSDBModel.FK_JdPreProject_JuniorDeveloper" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSDBModel.FK_Project_ProjectManager" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PMSDBModel.Notification" Width="1.5" PointX="11.375" PointY="6.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

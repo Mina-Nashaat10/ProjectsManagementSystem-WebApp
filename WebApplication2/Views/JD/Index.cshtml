@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int i = 0;
+    int j = 0;
+}
+
+<h2 style="color:dodgerblue;margin-left:10px;">Current Projects</h2>
+<table class="table table-adminpro table-bordered table-hover ">
+    <tr>
+        <td style="text-align: center">Post ID</td>
+        <th style="text-align:center">Post Description</th>
+        <th style="text-align:center">Project Manger Name</th>
+        <th style="text-align:center">Team Leader Name</th>
+        <th style="text-align:center">Customer Name</th>
+        <th style="text-align:center">Start Date</th>
+        <th style="text-align:center">Dead Line</th>
+    </tr>
+    @foreach (var item in ViewBag.allcurr)
+    {
+<tr>
+    <td style="text-align: center">@item.Post_ID</td>
+    <td style="text-align: center">@item.Post_Description</td>
+    @for (int x = i; x <= j; x++)
+    {
+        <td style="text-align: center">@ViewBag.allpms[x].PM_FirstName @ViewBag.allpms[x].PM_LastName</td>
+    }
+    @for (int x = i; x <= j; x++)
+    {
+        <td style="text-align: center">@ViewBag.alltls[x].TL_FirstName @ViewBag.alltls[x].TL_LastName</td>
+    }
+    @for (int x = i; x <= j; x++)
+    {
+        <td style="text-align: center">@ViewBag.allcusts[x].Cust_FirstName @ViewBag.allcusts[x].Cust_LastName</td>
+    }
+    <td style="text-align: center">@item.Start_Date</td>
+    <td style="text-align: center">@item.DeadLine</td>
+</tr>
+        j++;
+        i++;
+    }
+</table>
+<br />
+<br />
+@{
+    i = 0;
+    j = 0;
+}
+<h2 style="color: dodgerblue; margin-left: 10px;">Previous Projects</h2>
+<table class="table table-adminpro table-bordered table-hover ">
+    <tr>
+        <td style="text-align: center">Post ID</td>
+        <th style="text-align:center">Post Description</th>
+        <th style="text-align:center">Project Manger Name</th>
+        <th style="text-align:center">Team Leader Name</th>
+        <th style="text-align:center">Customer Name</th>
+        <th style="text-align:center">Start Date</th>
+        <th style="text-align:center">Dead Line</th>
+    </tr>
+    @foreach (var item in ViewBag.allpre)
+    {
+        <tr>
+            <td style="text-align: center">@item.Post_ID</td>
+            <td style="text-align: center">@item.Post_Description</td>
+            @for (int x = i; x <= j; x++)
+            {
+                <td style="text-align: center">@ViewBag.allpms1[x]</td>
+            }
+            @for (int x = i; x <= j; x++)
+            {
+                <td style="text-align: center">@ViewBag.alltls1[x]</td>
+            }
+            @for (int x = i; x <= j; x++)
+            {
+                <td style="text-align: center">@ViewBag.allcusts1[x]</td>
+            }
+            <td style="text-align: center">@item.Start_Date</td>
+            <td style="text-align: center">@item.DeadLine</td>
+        </tr>
+    }
+</table>
+<br />
+<br />

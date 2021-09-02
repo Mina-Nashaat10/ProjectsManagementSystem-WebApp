@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="57687f38b67740d79e13986082a80186" Name="Diagram1">
+        <EntityTypeShape EntityType="PMSDBModel.Admin" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSDBModel.Comment" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSDBModel.CurrentProject" Width="1.5" PointX="6" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSDBModel.Customer" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSDBModel.JD" Width="1.5" PointX="5.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSDBModel.JDCurProject" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSDBModel.JDPreProject" Width="1.5" PointX="8" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSDBModel.Notification" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSDBModel.PM" Width="1.5" PointX="0.75" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSDBModel.PreviousProject" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSDBModel.Project" Width="1.5" PointX="3" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSDBModel.Role" Width="1.5" PointX="10.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSDBModel.sysdiagram" Width="1.5" PointX="10.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PMSDBModel.TL" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <AssociationConnector Association="PMSDBModel.FK_Comment_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSDBModel.FK_Comment_PM" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSDBModel.FK_Comment_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSDBModel.FK_CurrentProject_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSDBModel.FK_CurrentProject_PM" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSDBModel.FK_CurrentProject_TL" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSDBModel.FK_PreviousProjects_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSDBModel.FK_Project_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSDBModel.FK_JDCurProjects_JD" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSDBModel.FK_JDPreProjects_JD" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSDBModel.FK_PreviousProjects_PM" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSDBModel.FK_Project_PM" ManuallyRouted="false" />
+        <AssociationConnector Association="PMSDBModel.FK_PreviousProjects_TL" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,213 @@
+﻿@model WebApplication2.Models.Project
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Session["type"] = null;
+    int i = 0;
+    int j = 0;
+}
+
+<center>
+    @if (!ViewData["aa"].Equals("null"))
+    {
+        <script class="text/Javascript">
+            window.onload = function () {
+                alert("@ViewData["aa"]")
+            }
+        </script>
+    }
+</center>
+
+
+
+<h2 style="color:dodgerblue; margin-left: 15px;">Project Managers</h2>
+<table class="table table-adminpro table-bordered table-hover " style="margin-left: 15px; width:97%;">
+    <tr>
+        <td style="text-align: center">ID</td>
+        <th style="text-align:center">First Name</th>
+        <th style="text-align:center">Last Name</th>
+        <th style="text-align:center">E-mail</th>
+        <th style="text-align:center">Mobile</th>
+        <th style="text-align:center">Job Description</th>
+        <th style="text-align:center">Remove</th>
+    </tr>
+    @foreach (var item in ViewBag.pm)
+    {
+        <tr>
+            <td style="text-align:center">@item.PM_id</td>
+            <td style="text-align:center">@item.PM_FirstName</td>
+            <td style="text-align:center">@item.PM_LastName</td>
+            <td style="text-align:center">@item.PM_Email</td>
+            <td style="text-align:center">@item.PM_Mobile</td>
+            <td style="text-align:center">@item.PM_Jobdescription</td>
+            <td style="text-align:center"><a href="remove/@item.PM_id/PM" class="btn btn-primary">Remove</a></td>
+
+
+        </tr>
+    }
+</table>
+<br />
+<br />
+
+<h2 style="color: dodgerblue; margin-left: 15px;">Team Leaders</h2>
+<table class="table table-adminpro table-bordered table-hover " style="margin-left: 15px; width: 97%;">
+    <tr>
+        <td style="text-align:center">ID</td>
+        <th style="text-align:center">First Name</th>
+        <th style="text-align:center">Last Name</th>
+        <th style="text-align:center">E-mail</th>
+        <th style="text-align:center">Mobile</th>
+        <th style="text-align:center">Job Description</th>
+        <th style="text-align:center">Remove</th>
+    </tr>
+    @foreach (var item in ViewBag.tl)
+    {
+        <tr>
+            <td style="text-align:center">@item.TL_ID</td>
+            <td style="text-align:center">@item.TL_FirstName</td>
+            <td style="text-align:center">@item.TL_LastName</td>
+            <td style="text-align:center">@item.TL_Email</td>
+            <td style="text-align:center">@item.TL_Mobile</td>
+            <td style="text-align:center">@item.TL_JobDescription</td>
+            <td style="text-align:center"><a href="remove/@item.TL_ID/TL" class="btn btn-primary">Remove</a></td>
+        </tr>
+    }
+</table>
+<br />
+<br />
+<h2 style="color: dodgerblue; margin-left: 15px;">Junior Developers</h2>
+<table class="table table-adminpro table-bordered table-hover " style="margin-left: 15px; width: 97%;">
+    <tr>
+        <td style="text-align:center">ID</td>
+        <th style="text-align:center">First Name</th>
+        <th style="text-align:center">Last Name</th>
+        <th style="text-align:center">E-mail</th>
+        <th style="text-align:center">Mobile</th>
+        <th style="text-align:center">Job Description</th>
+        <th style="text-align:center">Remove</th>
+    </tr>
+    @foreach (var item in ViewBag.jd)
+    {
+        <tr>
+            <td style="text-align:center">@item.JD_ID</td>
+            <td style="text-align:center">@item.JD_FirstName</td>
+            <td style="text-align:center">@item.JD_LastName</td>
+            <td style="text-align:center">@item.JD_Email</td>
+            <td style="text-align:center">@item.JD_Mobile</td>
+            <td style="text-align:center">@item.JD_JobDescription</td>
+            <td style="text-align:center"><a href="remove/@item.JD_ID/JD" class="btn btn-primary">Remove</a></td>
+        </tr>
+    }
+</table>
+<br />
+<br />
+<h2 style="color: dodgerblue; margin-left: 15px;">Customers</h2>
+<table class="table table-adminpro table-bordered table-hover " style="margin-left: 15px; width: 97%;">
+    <tr>
+        <td style="text-align:center">ID</td>
+        <th style="text-align:center">First Name</th>
+        <th style="text-align:center">Last Name</th>
+        <th style="text-align:center">E-mail</th>
+        <th style="text-align:center">Mobile</th>
+        <th style="text-align:center">Job Description</th>
+        <th style="text-align:center">Remove</th>
+    </tr>
+    @foreach (var item in ViewBag.customers)
+    {
+        <tr>
+            <td style="text-align:center">@item.Cust_ID</td>
+            <td style="text-align:center">@item.Cust_FirstName</td>
+            <td style="text-align:center">@item.Cust_LastName</td>
+            <td style="text-align:center">@item.Cust_Email</td>
+            <td style="text-align:center">@item.Cust_Mobile</td>
+            <td style="text-align:center">@item.Cust_JobDescription</td>
+            <td style="text-align:center"><a href="remove/@item.Cust_ID/Customer" class="btn btn-primary">Remove</a></td>
+        </tr>
+    }
+</table>
+<br />
+<br />
+
+<br />
+<br />
+<h2 style="color: dodgerblue; margin-left: 15px">Posts</h2>
+<table class="table table-adminpro table-bordered table-hover " style="margin-left: 15px; width: 97%;">
+    <tr>
+        <td style="text-align:center">Post_ID</td>
+        <th style="text-align:center">Post_Description</th>
+        <th style="text-align:center">Customer Name</th>
+        <th style="text-align:center">Post Time</th>
+        <th style="text-align:center"></th>
+
+    </tr>
+    @foreach (var item in ViewBag.post)
+    {
+        <tr>
+            <td style="text-align:center">@item.Post_ID</td>
+            <td style="text-align:center">@item.Post_Description</td>
+            @for (int x = i; x <= j; x++)
+            {
+                <td style="text-align:center">@ViewBag.custnames[i]</td>
+            }
+            <td style="text-align:center">@item.Post_Time</td>
+            <td style="text-align:center">
+                <a href="deletepost/@item.Post_ID" class="btn btn-primary">Remove</a>
+                <a href="update_post/@item.Post_ID" class="btn btn-primary">update</a>
+            </td>
+        </tr>
+        i++;
+        j++;
+    }
+</table>
+<br />
+<br />
+<h2 style="color: dodgerblue; margin-left: 15px">Current Projects</h2>
+<table class="table table-adminpro table-bordered table-hover " style="margin-left: 15px; width: 97%;">
+    <tr>
+        <td style="text-align:center">Post_ID</td>
+        <th style="text-align:center">Post_Description</th>
+        <th style="text-align:center">Project Manager Name</th>
+        <th style="text-align:center">Team Leader Name</th>
+        <th style="text-align:center">Customer Name</th>
+        <th style="text-align:center">Start Time</th>
+        <th style="text-align:center">Dead Line</th>
+        <th style="text-align:center"></th>
+
+    </tr>
+    @{
+        i = 0;
+        j = 0;
+    }
+    @foreach (var item in ViewBag.allprojects1)
+    {
+        <tr>
+            <td style="text-align:center">@item.Post_ID</td>
+            <td style="text-align:center">@item.Post_Description</td>
+            @for (int x = i; x <= j; x++)
+            {
+                <td style="text-align:center">@ViewBag.allpm[i].PM_FirstName @ViewBag.allpm[i].PM_LastName</td>
+            }
+            @for (int x = i; x <= j; x++)
+            {
+                <td style="text-align:center">@ViewBag.team1[i].TL_FirstName @ViewBag.team1[i].TL_LastName</td>
+            }
+            @for (int x = i; x <= j; x++)
+            {
+                <td style="text-align:center">@ViewBag.customers1[i].Cust_FirstName @ViewBag.customers1[i].Cust_LastName</td>
+            }
+            <td style="text-align:center">@item.Start_Date</td>
+            <td style="text-align:center">@item.DeadLine</td>
+            <td style="text-align:center">
+                <a href="deletepost/@item.Post_ID" class="btn btn-primary">Remove</a>
+                <a href="update_post/@item.Post_ID" class="btn btn-primary">update</a>
+            </td>
+        </tr>
+        i++;
+        j++;
+    }
+</table>
+<br />
+<br />
+@*
+    @Html.ActionLink("Update", "update_post", null,new { id = item.Post_ID,@class="btn btn-primary"})
+*@

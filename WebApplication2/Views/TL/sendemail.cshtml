@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "sendemail";
+    Layout = "~/Views/Shared/_SearchLayout.cshtml";
+}
+
+
+    @if (ViewBag.er != null)
+    {
+        <script class="text/Javascript">
+            window.onload = function () {
+                alert("@ViewBag.er")
+            }
+        </script>
+    }
+    <!DocType html>
+    <html>
+        <head>
+
+        </head>
+        <body>
+            <form id="sign_in" action="sendemail" method="POST">
+                <div class="form-group">
+                    <label for="formGroupExampleInput" style="font-size:20px">Subject</label>
+                    <input type="text" class="form-control" name="Subject" id="formGroupExampleInput" placeholder="Example input">
+                </div>
+                <div class="form-group">
+                    <label for="formGroupExampleInput" style="font-size:20px">Body</label>
+                    <input type="text" class="form-control" name="Body" id="formGroupExampleInput" placeholder="Example input">
+                </div>
+                <button type="submit" class="btn btn-primary mb-40">Send</button>
+            </form>
+
+
+
+        </body>
+    </html>

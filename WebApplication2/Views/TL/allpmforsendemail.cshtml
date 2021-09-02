@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "allpmforsendemail";
+    Layout = "~/Views/Shared/_SearchLayout.cshtml";
+}
+<br />
+<br />
+<h2>Project Managers</h2>
+<table class="table table-adminpro table-bordered table-hover ">
+    <tr>
+        <td>ID</td>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>E-mail</th>
+        <th>Mobile</th>
+        <th>Job Description</th>
+        <th>Send</th>
+    </tr>
+    @foreach (var item in ViewBag.allpms)
+    {
+        <tr>
+            <td>@item.PM_id</td>
+            <td>@item.PM_FirstName</td>
+            <td>@item.PM_LastName</td>
+            <td>@item.PM_Email</td>
+            <td>@item.PM_Mobile</td>
+            <td>@item.PM_Jobdescription</td>
+            <td><a href="sendemail/@item.PM_id" class="btn btn-primary">Send E-mail</a></td>
+        </tr>
+    }
+</table>
+<br />
+<br />

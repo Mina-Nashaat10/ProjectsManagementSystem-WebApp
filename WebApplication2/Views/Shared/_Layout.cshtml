@@ -1,0 +1,1125 @@
+﻿@{
+    int i = 0;
+    int j = 0;
+    int m = int.Parse(Session["actorid"].ToString());
+}
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Login | Adminpro - Admin Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon
+        ============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href="~/image/favicon.ico">
+    <!-- Google Fonts
+        ============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i,800" rel="stylesheet">
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/Content/font-awesome.min.css">
+    <!-- adminpro icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/Content/adminpro-custon-icon.css">
+    <!-- meanmenu icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/Content/meanmenu.min.css">
+    <!-- mCustomScrollbar CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/Content/jquery.mCustomScrollbar.min.css">
+    <!-- animate CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/Content/animate.css">
+    <!-- normalize CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/Content/normalize.css">
+    <!-- form CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/Content/form.css">
+    <!-- style CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/Content/style.css">
+    <!-- responsive CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/Content/responsive.css">
+    <!-- modernizr JS
+        ============================================ -->
+    <script src="~/Scripts/modernizr-2.8.3.min.js"></script>
+</head>
+
+<body class="darklayout" style="width: 100%;">
+
+    <div class="wrapper-pro">
+        <div class="left-sidebar-pro">
+            <nav id="sidebar">
+                <div class="sidebar-header">
+                    <img src="~/image/user-lg.jpg" alt="" />
+                    <h3 style="text-transform:capitalize">@Session["actorname"]</h3>
+                    <p>@Session["actortype"]</p>
+                    <strong>AP+</strong>
+                </div>
+                <div class="left-custom-menu-adp-wrap">
+                    <ul class="nav navbar-nav left-sidebar-menu-pro">
+
+                        @if (Session["roleid"].Equals("1"))
+                        {
+                            @*<p style="color:cyan; font-size:20px;text-transform:capitalize">First Name : </p><p style="color:white; font-size:15px;text-transform:capitalize">@ViewBag.inf.Ad_FirstName</p>
+                                <p style="color:cyan; font-size:20px;text-transform:capitalize">Last Name : </p><p style="color:white; font-size:15px;text-transform:capitalize">@ViewBag.inf.Ad_LastName</p>
+                                <p style="color:cyan; font-size:20px;text-transform:capitalize">Email : </p><p style="color:white; font-size:15px;">@ViewBag.inf.Ad_Email</p>
+                                <p style="color:cyan; font-size:20px;text-transform:capitalize">Mobile : </p><p style="color:white; font-size:15px;text-transform:capitalize">@ViewBag.inf.Ad_Mobile</p>
+                                <p style="color:cyan; font-size:20px;text-transform:capitalize">Job Description : </p><p style="color:white; font-size:15px;text-transform:capitalize">@ViewBag.inf.Ad_JobDescription</p>*@
+                            <br />
+                            <li class="nav-item">
+                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i> <span class="mini-dn">First Name</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                                <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                    <a href="dashboard.html" class="dropdown-item" style="text-transform:capitalize">@ViewBag.inf.Ad_FirstName</a>
+                                </div>
+                            </li>
+                            <br />
+                            <li class="nav-item">
+                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i> <span class="mini-dn">Last Name</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                                <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                    <a href="dashboard.html" class="dropdown-item" style="text-transform:capitalize;">@ViewBag.inf.Ad_LastName</a>
+                                </div>
+                            </li>
+                            <br />
+                            <li class="nav-item">
+                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i> <span class="mini-dn">Email</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                                <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                    <a href="dashboard.html" class="dropdown-item">@ViewBag.inf.Ad_Email</a>
+                                </div>
+                            </li>
+                            <br />
+                            <li class="nav-item">
+                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i> <span class="mini-dn">Mobile</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                                <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                    <a href="dashboard.html" class="dropdown-item" style="text-transform:capitalize;">@ViewBag.inf.Ad_Mobile</a>
+                                </div>
+                            </li>
+                            <br />
+                            <li class="nav-item">
+                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i> <span class="mini-dn">Job Description</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                                <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                    <a href="dashboard.html" class="dropdown-item" style="text-transform:capitalize;">@ViewBag.inf.Ad_JobDescription</a>
+                                </div>
+                            </li>
+                        }
+                        else if (Session["roleid"].Equals("2"))
+                        {
+                            <br />
+                            <li class="nav-item">
+                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i> <span class="mini-dn">First Name</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                                <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                    <a href="dashboard.html" class="dropdown-item" style="text-transform:capitalize;">@ViewBag.inf.Cust_FirstName</a>
+                                </div>
+                            </li>
+                            <br />
+                            <li class="nav-item">
+                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i> <span class="mini-dn">Last Name</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                                <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                    <a href="dashboard.html" class="dropdown-item" style="text-transform:capitalize;">@ViewBag.inf.Cust_LastName</a>
+                                </div>
+                            </li>
+                            <br />
+                            <li class="nav-item">
+                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i> <span class="mini-dn">Email</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                                <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                    <a href="dashboard.html" class="dropdown-item">@ViewBag.inf.Cust_Email</a>
+                                </div>
+                            </li>
+                            <br />
+                            <li class="nav-item">
+                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i> <span class="mini-dn">Mobile</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                                <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                    <a href="dashboard.html" class="dropdown-item" style="text-transform:capitalize;">@ViewBag.inf.Cust_Mobile</a>
+                                </div>
+                            </li>
+                            <br />
+                            <li class="nav-item">
+                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i> <span class="mini-dn">Job Description</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                                <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                    <a href="dashboard.html" class="dropdown-item" style="text-transform:capitalize;">@ViewBag.inf.Cust_JobDescription</a>
+                                </div>
+                            </li>
+                        }
+                        else if (Session["roleid"].Equals("3"))
+                        {
+                            <br />
+                            <li class="nav-item">
+                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i> <span class="mini-dn">First Name</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                                <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                    <a href="dashboard.html" class="dropdown-item" style="text-transform:capitalize;">@ViewBag.inf.TL_FirstName</a>
+                                </div>
+                                <br />
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i> <span class="mini-dn">Last Name</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                                <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                    <a href="dashboard.html" class="dropdown-item" style="text-transform:capitalize;">@ViewBag.inf.TL_LastName</a>
+                                </div>
+                                <br />
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i> <span class="mini-dn">Email</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                                <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                    <a href="dashboard.html" class="dropdown-item">@ViewBag.inf.TL_Email</a>
+                                </div>
+                            </li>
+                            <br />
+                            <li class="nav-item">
+                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i> <span class="mini-dn">Mobile</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                                <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                    <a href="dashboard.html" class="dropdown-item" style="text-transform:capitalize;">@ViewBag.inf.TL_Mobile</a>
+                                </div>
+                            </li>
+                            <br />
+                            <li class="nav-item">
+                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i> <span class="mini-dn">Job Description</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                                <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                    <a href="dashboard.html" class="dropdown-item" style="text-transform:capitalize;">@ViewBag.inf.TL_JobDescription</a>
+                                </div>
+                            </li>
+                        }
+                        else if (Session["roleid"].Equals("4"))
+                        {
+                            <br />
+                            <li class="nav-item">
+                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i> <span class="mini-dn">First Name</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                                <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                    <a href="dashboard.html" class="dropdown-item" style="text-transform:capitalize;">@ViewBag.inf.PM_FirstName</a>
+                                </div>
+                            </li>
+                            <br />
+                            <li class="nav-item">
+                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i> <span class="mini-dn">Last Name</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                                <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                    <a href="dashboard.html" class="dropdown-item" style="text-transform:capitalize;">@ViewBag.inf.PM_LastName</a>
+                                </div>
+                            </li>
+                            <br />
+                            <li class="nav-item">
+                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i> <span class="mini-dn">Email</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                                <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                    <a href="dashboard.html" class="dropdown-item">@ViewBag.inf.PM_Email</a>
+                                </div>
+                            </li>
+                            <br />
+                            <li class="nav-item">
+                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i> <span class="mini-dn">Mobile</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                                <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                    <a href="dashboard.html" class="dropdown-item" style="text-transform:capitalize;">@ViewBag.inf.PM_Mobile</a>
+                                </div>
+                            </li>
+                            <br />
+                            <li class="nav-item">
+                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i> <span class="mini-dn">Job Description</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                                <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                    <a href="dashboard.html" class="dropdown-item" style="text-transform:capitalize;">@ViewBag.inf.PM_Jobdescription</a>
+                                </div>
+                            </li>
+                        }
+                        else
+                        {
+                            <br />
+                            <li class="nav-item">
+                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i> <span class="mini-dn">First Name</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                                <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                    <a href="dashboard.html" class="dropdown-item" style="text-transform:capitalize;">@ViewBag.inf.JD_FirstName</a>
+                                </div>
+                            </li>
+                            <br />
+                            <li class="nav-item">
+                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i> <span class="mini-dn">Last Name</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                                <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                    <a href="dashboard.html" class="dropdown-item" style="text-transform:capitalize;">@ViewBag.inf.JD_LastName</a>
+                                </div>
+                            </li>
+                            <br />
+                            <li class="nav-item">
+                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i> <span class="mini-dn">Email</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                                <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                    <a href="dashboard.html" class="dropdown-item">@ViewBag.inf.JD_Email</a>
+                                </div>
+                            </li>
+                            <br />
+                            <li class="nav-item">
+                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-spinner fa-pulse fa-1x fa-fw"></i> <span class="mini-dn">Mobile</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                                <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                    <a href="dashboard.html" class="dropdown-item" style="text-transform:capitalize;">@ViewBag.inf.JD_Mobile</a>
+                                </div>
+                            </li>
+                            <br />
+                            <li class="nav-item">
+                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-spinner fa-pulse fa-1x fa-fw    "></i> <span class="mini-dn">Job Description</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
+                                <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
+                                    <a href="dashboard.html" class="dropdown-item" style="text-transform:capitalize;">@ViewBag.inf.JD_JobDescription</a>
+                                </div>
+                            </li>
+                        }
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- Header top area start-->
+
+        <div class="content-inner-all">
+
+            <div class="header-top-area">
+                <div class="fixed-header-top">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-1 col-md-6 col-sm-6 col-xs-12">
+                                <div class="admin-logo logo-wrap-pro">
+                                    <a href="#">
+                                        <img src="img/logo/log.png" alt="" />
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-1 col-sm-1 col-xs-12">
+                                <div class="header-top-menu tabl-d-n">
+                                    <ul class="nav navbar-nav mai-top-nav">
+                                        <li class="nav-item">
+                                            @Html.ActionLink("Home", "Index", "Post")
+                                        </li>
+                                        @if (Session["roleid"].Equals("1"))
+                                        {
+
+                                            <li class="nav-item dropdown">
+                                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">Add <span class="angle-down-topmenu"><i class="fa fa-angle-down"></i></span></a>
+                                                <div role="menu" class="dropdown-menu animated flipInX">
+
+                                                    <a href="add_admin" class="dropdown-item">Admin</a>
+                                                    <a href="add_pm" class="dropdown-item">Project Manager</a>
+                                                    <a href="add_tl" class="dropdown-item">Team Leader</a>
+                                                    <a href="add_jd" class="dropdown-item">Junior Developers</a>
+                                                    <a href="add_cust" class="dropdown-item">Customer</a>
+
+                                                </div>
+                                            </li>
+                                            <li class="nav-item dropdown">
+                                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">Post <span class="angle-down-topmenu"><i class="fa fa-angle-down"></i></span></a>
+                                                <div role="menu" class="dropdown-menu animated flipInX">
+
+                                                    <a href="add_post" class="dropdown-item">Add</a>
+
+                                                </div>
+                                            </li>
+                                        }
+
+
+                                        @if (Session["roleid"].Equals("4") || Session["roleid"].Equals("3") || Session["roleid"].Equals("2"))
+                                        {
+                                            <li class="nav-item dropdown">
+                                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">Search <span class="angle-down-topmenu"><i class="fa fa-angle-down"></i></span></a>
+                                                <div role="menu" class="dropdown-menu animated flipInX">
+                                                    @if (Session["roleid"].Equals("4"))
+                                                    {
+
+                                                        <a href="search1" class="dropdown-item">Team_Leader</a>
+                                                        <a href="search2" class="dropdown-item">Junier Developer</a>
+                                                    }
+                                                    else if (Session["roleid"].Equals("3"))
+                                                    {
+                                                        <a href="search" class="dropdown-item">Junier Developer</a>
+                                                    }
+                                                    else if (Session["roleid"].Equals("2"))
+                                                    {
+                                                        <a href="searchpm" class="dropdown-item">Project Manager</a>
+                                                    }
+                                                </div>
+                                            </li>
+                                            if (Session["roleid"].Equals("3"))
+                                            {
+                                                <li class="nav-item">
+                                                    <a href="allpmforsendemail" class="nav-link">Send Email</a>
+                                                </li>
+                                            }
+
+                                        }
+
+                                        <li class="nav-item">
+                                            <a href="#" class="nav-link">Support</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-5 col-md-5 col-sm-6 col-xs-12">
+                                <div class="header-right-info">
+                                    <ul class="nav navbar-nav mai-top-nav header-right-menu">
+                                        <li class="nav-item dropdown">
+                                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><span class="adminpro-icon adminpro-chat-pro"></span><span class="indicator-ms"></span></a>
+                                            <div role="menu" class="author-message-top dropdown-menu animated flipInX">
+                                                <div class="message-single-top">
+                                                    <h1>Message</h1>
+                                                </div>
+                                                <ul class="message-menu">
+                                                    <li>
+                                                        <a href="#">
+                                                            <div class="message-img">
+                                                                <img src="img/message/1.jpg" alt="">
+                                                            </div>
+                                                            <div class="message-content">
+                                                                <span class="message-date">16 Sept</span>
+                                                                <h2>Advanda Cro</h2>
+                                                                <p>Please done this project as soon possible.</p>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <div class="message-img">
+                                                                <img src="img/message/4.jpg" alt="">
+                                                            </div>
+                                                            <div class="message-content">
+                                                                <span class="message-date">16 Sept</span>
+                                                                <h2>Sulaiman din</h2>
+                                                                <p>Please done this project as soon possible.</p>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <div class="message-img">
+                                                                <img src="img/message/3.jpg" alt="">
+                                                            </div>
+                                                            <div class="message-content">
+                                                                <span class="message-date">16 Sept</span>
+                                                                <h2>Victor Jara</h2>
+                                                                <p>Please done this project as soon possible.</p>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#">
+                                                            <div class="message-img">
+                                                                <img src="img/message/2.jpg" alt="">
+                                                            </div>
+                                                            <div class="message-content">
+                                                                <span class="message-date">16 Sept</span>
+                                                                <h2>Victor Jara</h2>
+                                                                <p>Please done this project as soon possible.</p>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                                <div class="message-view">
+                                                    <a href="#">View All Messages</a>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-bell-o" aria-hidden="true"></i><span class="indicator-nt"></span></a>
+                                            <div role="menu" class="notification-author dropdown-menu animated flipInX">
+                                                <div class="notification-single-top">
+                                                    <h1>Notifications</h1>
+                                                </div>
+                                                <ul class="notification-menu">
+
+                                                    @if (!Session["roleid"].Equals("1"))
+                                                    {
+                                                        // customer
+                                                        if (Session["roleid"].Equals("2"))
+                                                        {
+                                                            foreach (var item in ViewBag.allnotcust)
+                                                            {
+                                                                <a>
+                                                                <li>
+                                                                    <div>
+                                                                    </div>
+                                                                    <div>
+                                                                        @for (int a = 0; a <= j; a++)
+                                                                        {
+                                                                            <h6 style="text-transform:capitalize;"> @ViewBag.allpmss[a]  @item.Date</h6>
+                                                                        }
+
+                                                                        <a title="@ViewBag.allposts[i]"><h5 class="notification-content"> @item.Message</h5></a>
+
+                                                                        <a href="deletenot/@m/@item.Post_ID" class="btn btn-primary">Delete Notifications</a>
+                                                                        @*
+                                                                            <ul>
+                                                                                <li style="float: left; text-decoration: none; padding: 5px; list-style-type: none"><a href="reject/@item.p1_id/@item.Post_ID" class="btn btn-primary">Reject</a></li>
+                                                                                <li style="float: left; text-decoration: none; padding: 5px; list-style-type: none"><a href="accept/@item.p1_id/@item.Post_ID" class="btn btn-primary">Accept</a></li>
+                                                                            </ul>*@
+                                                                    </div>
+                                                                </li>
+                                                                </a>
+                                                                <hr />
+                                                            }
+                                                        }
+                                                        // TL
+                                                        else if (Session["roleid"].Equals("3"))
+                                                        {
+                                                            foreach (var item in ViewBag.allNotificationForTL)
+                                                            {
+                                                                <a>
+                                                                <li>
+                                                                    <div>
+                                                                    </div>
+                                                                    <div>
+                                                                        <h6 style="text-transform:capitalize;"> @ViewBag.projectManagersNames[i] (PM) @item.Date</h6>
+
+                                                                        <a title="@ViewBag.posts[i].Post_Description"><h5 class="notification-content">Message: @item.Message </h5></a>
+
+                                                                        <ul>
+                                                                            @*
+                                                                                @Html.ActionLink("Reject", "rejectPmRequest", new { pmId = @item.Person1_Id, postId = @item.Post_ID });
+
+                                                                            *@
+                                                                            <li style="float: left; text-decoration: none; padding: 5px; list-style-type: none"><a href="@Url.Action("rejectPmRequest", "TL", new { pmId = @item.Person1_Id, postId = @item.Post_ID })" class="btn btn-primary">Reject</a></li>
+                                                                            <li style="float: left; text-decoration: none; padding: 5px; list-style-type: none"><a href="@Url.Action("acceptPmRequest", "TL", new { pmId = @item.Person1_Id, postId = @item.Post_ID })" class="btn btn-primary">Accept</a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </li>
+                                                                </a>
+                                                                <hr />
+
+
+                                                            }
+                                                            @:{i=0;j=0;}
+                                                        }
+                                                        // PM
+                                                        else if (Session["roleid"].Equals("4"))
+                                                        {
+                                                            foreach (var item in ViewBag.allnotificationpm)
+                                                            {
+                                                                <a>
+                                                                <li>
+                                                                    <div>
+                                                                    </div>
+                                                                    <div>
+                                                                        @if (item.Actor1_Name == "Customer")
+                                                                        {
+                                                                            for (int a = 0; a <= j; a++)
+                                                                            {
+                                                                                <h6 style="text-transform:capitalize;"> @ViewBag.allcustomers[a]  @item.Date</h6>
+                                                                            }
+
+                                                                            <a title="@ViewBag.allposts[i]"><h5 class="notification-content"> @item.Message</h5></a>
+                                                                            <ul>
+                                                                                <li style="float: left; text-decoration: none; padding: 5px; list-style-type: none"><a href="reject/@item.Person1_Id/@item.Post_ID" class="btn btn-primary">Reject</a></li>
+                                                                                <li style="float: left; text-decoration: none; padding: 5px; list-style-type: none"><a href="accept/@item.Person1_Id/@item.Post_ID" class="btn btn-primary">Accept</a></li>
+                                                                            </ul>
+                                                                        }
+                                                                        else if (item.Actor1_Name == "TL")
+                                                                        {
+                                                                            for (int a = 0; a <= j; a++)
+                                                                            {
+                                                                                <h6 style="text-transform:capitalize;"> @ViewBag.teamLeadersNames[a]  @item.Date</h6>
+                                                                            }
+
+                                                                            <a title="@ViewBag.allposts[i]"><h5 class="notification-content"> @item.Message</h5></a>
+                                                                            <ul>
+                                                                                <a href="@Url.Action("deleteNotificationFromTL", "PM", new { pmId = @item.Person2_Id, tlId = @item.Person1_Id, postId = @item.Post_ID })" class="btn btn-primary">Delete Notifications</a>
+                                                                            </ul>
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            for (int a = 0; a <= j; a++)
+                                                                            {
+                                                                                <h6 style="text-transform:capitalize;"> @ViewBag.juniorDevelopersNames[a]  @item.Date</h6>
+                                                                            }
+                                                                            <a title="@ViewBag.allposts[i]"><h5 class="notification-content"> @item.Message</h5></a>
+                                                                            <ul>
+                                                                                <a href="@Url.Action("deleteNotificationFromJD", "PM", new { pmId = @item.Person2_Id, jdId = @item.Person1_Id, postId = @item.Post_ID })" class="btn btn-primary">Delete Notifications</a>
+                                                                            </ul>
+                                                                        }
+
+                                                                    </div>
+                                                                </li>
+                                                                </a>
+                                                                <hr />
+
+
+                                                            }
+                                                            @:{i=0;j=0;}
+                                                        }
+                                                        else
+                                                        {
+                                                            //jd
+                                                            foreach (var item in ViewBag.allNotificationForJD)
+                                                            {
+                                                                <a>
+                                                                <li>
+                                                                    <div>
+                                                                    </div>
+                                                                    <div>
+                                                                        <h6 style="text-transform:capitalize;"> @ViewBag.projectManagersNames[i] (PM) @item.Date</h6>
+
+                                                                        <a title="@ViewBag.posts[i].Post_Description"><h5 class="notification-content">Message: @item.Message </h5></a>
+
+                                                                        <ul>
+                                                                            @*
+                                                                                @Html.ActionLink("Reject", "rejectPmRequest", new { pmId = @item.Person1_Id, postId = @item.Post_ID });
+
+                                                                            *@
+                                                                            <li style="float: left; text-decoration: none; padding: 5px; list-style-type: none"><a href="@Url.Action("rejectPmRequest", "JD", new { pmId = @item.Person1_Id, postId = @item.Post_ID })" class="btn btn-primary">Reject</a></li>
+                                                                            <li style="float: left; text-decoration: none; padding: 5px; list-style-type: none"><a href="@Url.Action("acceptPmRequest", "JD", new { pmId = @item.Person1_Id, postId = @item.Post_ID })" class="btn btn-primary">Accept</a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </li>
+                                                                </a>
+                                                                <hr />
+
+
+                                                            }
+                                                        }
+                                                    }
+
+
+                                                </ul>
+                                            </div>
+                                        </li>
+
+
+                                        <li class="nav-item">
+                                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
+                                                <span class="adminpro-icon adminpro-user-rounded header-riht-inf"></span>
+                                                @Html.ActionLink("Logout", "login", "Home")
+                                                <span class="author-project-icon adminpro-icon adminpro-down-arrow"></span>
+                                            </a>
+                                            @*
+                                                <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated flipInX">
+                                                    <li>
+                                                        <a href="#"><span class="adminpro-icon adminpro-home-admin author-log-ic"></span>My Account</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><span class="adminpro-icon adminpro-user-rounded author-log-ic"></span>My Profile</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><span class="adminpro-icon adminpro-money author-log-ic"></span>User Billing</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><span class="adminpro-icon adminpro-settings author-log-ic"></span>Settings</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#"><span class="adminpro-icon adminpro-locked author-log-ic"></span>Log Out</a>
+                                                    </li>
+                                                </ul>
+                                            *@
+                                        </li>
+                                        <li class="nav-item nav-setting-open">
+                                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa fa-tasks"></i></a>
+                                            <div role="menu" class="admintab-wrap menu-setting-wrap menu-setting-wrap-bg dropdown-menu animated flipInX">
+                                                <ul class="nav nav-tabs custon-set-tab">
+                                                    <li class="active">
+                                                        <a data-toggle="tab" href="#Notes">Notes</a>
+                                                    </li>
+                                                    <li>
+                                                        <a data-toggle="tab" href="#Projects">Projects</a>
+                                                    </li>
+                                                    <li>
+                                                        <a data-toggle="tab" href="#Settings">Settings</a>
+                                                    </li>
+                                                </ul>
+                                                <div class="tab-content">
+                                                    <div id="Notes" class="tab-pane fade in active">
+                                                        <div class="notes-area-wrap">
+                                                            <div class="note-heading-indicate">
+                                                                <h2><i class="fa fa-comments-o"></i> Latest Notes</h2>
+                                                                <p>You have 10 new message.</p>
+                                                            </div>
+                                                            <div class="notes-list-area notes-menu-scrollbar">
+                                                                <ul class="notes-menu-list">
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <div class="notes-list-flow">
+                                                                                <div class="notes-img">
+                                                                                    <img src="img/notification/5.jpg" alt="" />
+                                                                                </div>
+                                                                                <div class="notes-content">
+                                                                                    <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
+                                                                                    <span>Yesterday 2:45 pm</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <div class="notes-list-flow">
+                                                                                <div class="notes-img">
+                                                                                    <img src="img/notification/1.jpg" alt="" />
+                                                                                </div>
+                                                                                <div class="notes-content">
+                                                                                    <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
+                                                                                    <span>Yesterday 2:45 pm</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <div class="notes-list-flow">
+                                                                                <div class="notes-img">
+                                                                                    <img src="img/notification/2.jpg" alt="" />
+                                                                                </div>
+                                                                                <div class="notes-content">
+                                                                                    <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
+                                                                                    <span>Yesterday 2:45 pm</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <div class="notes-list-flow">
+                                                                                <div class="notes-img">
+                                                                                    <img src="img/notification/3.jpg" alt="" />
+                                                                                </div>
+                                                                                <div class="notes-content">
+                                                                                    <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
+                                                                                    <span>Yesterday 2:45 pm</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <div class="notes-list-flow">
+                                                                                <div class="notes-img">
+                                                                                    <img src="img/notification/4.jpg" alt="" />
+                                                                                </div>
+                                                                                <div class="notes-content">
+                                                                                    <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
+                                                                                    <span>Yesterday 2:45 pm</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <div class="notes-list-flow">
+                                                                                <div class="notes-img">
+                                                                                    <img src="img/notification/5.jpg" alt="" />
+                                                                                </div>
+                                                                                <div class="notes-content">
+                                                                                    <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
+                                                                                    <span>Yesterday 2:45 pm</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <div class="notes-list-flow">
+                                                                                <div class="notes-img">
+                                                                                    <img src="img/notification/6.jpg" alt="" />
+                                                                                </div>
+                                                                                <div class="notes-content">
+                                                                                    <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
+                                                                                    <span>Yesterday 2:45 pm</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <div class="notes-list-flow">
+                                                                                <div class="notes-img">
+                                                                                    <img src="img/notification/1.jpg" alt="" />
+                                                                                </div>
+                                                                                <div class="notes-content">
+                                                                                    <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
+                                                                                    <span>Yesterday 2:45 pm</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <div class="notes-list-flow">
+                                                                                <div class="notes-img">
+                                                                                    <img src="img/notification/2.jpg" alt="" />
+                                                                                </div>
+                                                                                <div class="notes-content">
+                                                                                    <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
+                                                                                    <span>Yesterday 2:45 pm</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <div class="notes-list-flow">
+                                                                                <div class="notes-img">
+                                                                                    <img src="img/notification/3.jpg" alt="" />
+                                                                                </div>
+                                                                                <div class="notes-content">
+                                                                                    <p> The point of using Lorem Ipsum is that it has a more-or-less normal.</p>
+                                                                                    <span>Yesterday 2:45 pm</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div id="Projects" class="tab-pane fade">
+                                                        <div class="projects-settings-wrap">
+                                                            <div class="note-heading-indicate">
+                                                                <h2><i class="fa fa-cube"></i> Latest projects</h2>
+                                                                <p> You have 20 projects. 5 not completed.</p>
+                                                            </div>
+                                                            <div class="project-st-list-area project-st-menu-scrollbar">
+                                                                <ul class="projects-st-menu-list">
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <div class="project-list-flow">
+                                                                                <div class="projects-st-heading">
+                                                                                    <h2>Web Development</h2>
+                                                                                    <p> The point of using Lorem Ipsum is that it has a more or less normal.</p>
+                                                                                    <span class="project-st-time">1 hours ago</span>
+                                                                                </div>
+                                                                                <div class="projects-st-content">
+                                                                                    <p>Completion with: 28%</p>
+                                                                                    <div class="progress progress-mini">
+                                                                                        <div style="width: 28%;" class="progress-bar progress-bar-danger"></div>
+                                                                                    </div>
+                                                                                    <p>Project end: 4:00 pm - 12.06.2014</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <div class="project-list-flow">
+                                                                                <div class="projects-st-heading">
+                                                                                    <h2>Software Development</h2>
+                                                                                    <p> The point of using Lorem Ipsum is that it has a more or less normal.</p>
+                                                                                    <span class="project-st-time">2 hours ago</span>
+                                                                                </div>
+                                                                                <div class="projects-st-content project-rating-cl">
+                                                                                    <p>Completion with: 68%</p>
+                                                                                    <div class="progress progress-mini">
+                                                                                        <div style="width: 68%;" class="progress-bar"></div>
+                                                                                    </div>
+                                                                                    <p>Project end: 4:00 pm - 12.06.2014</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <div class="project-list-flow">
+                                                                                <div class="projects-st-heading">
+                                                                                    <h2>Graphic Design</h2>
+                                                                                    <p> The point of using Lorem Ipsum is that it has a more or less normal.</p>
+                                                                                    <span class="project-st-time">3 hours ago</span>
+                                                                                </div>
+                                                                                <div class="projects-st-content">
+                                                                                    <p>Completion with: 78%</p>
+                                                                                    <div class="progress progress-mini">
+                                                                                        <div style="width: 78%;" class="progress-bar"></div>
+                                                                                    </div>
+                                                                                    <p>Project end: 4:00 pm - 12.06.2014</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <div class="project-list-flow">
+                                                                                <div class="projects-st-heading">
+                                                                                    <h2>Web Design</h2>
+                                                                                    <p> The point of using Lorem Ipsum is that it has a more or less normal.</p>
+                                                                                    <span class="project-st-time">4 hours ago</span>
+                                                                                </div>
+                                                                                <div class="projects-st-content project-rating-cl2">
+                                                                                    <p>Completion with: 38%</p>
+                                                                                    <div class="progress progress-mini">
+                                                                                        <div style="width: 38%;" class="progress-bar progress-bar-danger"></div>
+                                                                                    </div>
+                                                                                    <p>Project end: 4:00 pm - 12.06.2014</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <div class="project-list-flow">
+                                                                                <div class="projects-st-heading">
+                                                                                    <h2>Business Card</h2>
+                                                                                    <p> The point of using Lorem Ipsum is that it has a more or less normal.</p>
+                                                                                    <span class="project-st-time">5 hours ago</span>
+                                                                                </div>
+                                                                                <div class="projects-st-content">
+                                                                                    <p>Completion with: 28%</p>
+                                                                                    <div class="progress progress-mini">
+                                                                                        <div style="width: 28%;" class="progress-bar progress-bar-danger"></div>
+                                                                                    </div>
+                                                                                    <p>Project end: 4:00 pm - 12.06.2014</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <div class="project-list-flow">
+                                                                                <div class="projects-st-heading">
+                                                                                    <h2>Ecommerce Business</h2>
+                                                                                    <p> The point of using Lorem Ipsum is that it has a more or less normal.</p>
+                                                                                    <span class="project-st-time">6 hours ago</span>
+                                                                                </div>
+                                                                                <div class="projects-st-content project-rating-cl">
+                                                                                    <p>Completion with: 68%</p>
+                                                                                    <div class="progress progress-mini">
+                                                                                        <div style="width: 68%;" class="progress-bar"></div>
+                                                                                    </div>
+                                                                                    <p>Project end: 4:00 pm - 12.06.2014</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <div class="project-list-flow">
+                                                                                <div class="projects-st-heading">
+                                                                                    <h2>Woocommerce Plugin</h2>
+                                                                                    <p> The point of using Lorem Ipsum is that it has a more or less normal.</p>
+                                                                                    <span class="project-st-time">7 hours ago</span>
+                                                                                </div>
+                                                                                <div class="projects-st-content">
+                                                                                    <p>Completion with: 78%</p>
+                                                                                    <div class="progress progress-mini">
+                                                                                        <div style="width: 78%;" class="progress-bar"></div>
+                                                                                    </div>
+                                                                                    <p>Project end: 4:00 pm - 12.06.2014</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="#">
+                                                                            <div class="project-list-flow">
+                                                                                <div class="projects-st-heading">
+                                                                                    <h2>Wordpress Theme</h2>
+                                                                                    <p> The point of using Lorem Ipsum is that it has a more or less normal.</p>
+                                                                                    <span class="project-st-time">9 hours ago</span>
+                                                                                </div>
+                                                                                <div class="projects-st-content project-rating-cl2">
+                                                                                    <p>Completion with: 38%</p>
+                                                                                    <div class="progress progress-mini">
+                                                                                        <div style="width: 38%;" class="progress-bar progress-bar-danger"></div>
+                                                                                    </div>
+                                                                                    <p>Project end: 4:00 pm - 12.06.2014</p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div id="Settings" class="tab-pane fade">
+                                                        <div class="setting-panel-area">
+                                                            <div class="note-heading-indicate">
+                                                                <h2><i class="fa fa-gears"></i> Settings Panel</h2>
+                                                                <p> You have 20 Settings. 5 not completed.</p>
+                                                            </div>
+                                                            <ul class="setting-panel-list">
+                                                                <li>
+                                                                    <div class="checkbox-setting-pro">
+                                                                        <div class="checkbox-title-pro">
+                                                                            <h2>Show notifications</h2>
+                                                                            <div class="ts-custom-check">
+                                                                                <div class="onoffswitch">
+                                                                                    <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="example">
+                                                                                    <label class="onoffswitch-label" for="example">
+                                                                                        <span class="onoffswitch-inner"></span>
+                                                                                        <span class="onoffswitch-switch"></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="checkbox-setting-pro">
+                                                                        <div class="checkbox-title-pro">
+                                                                            <h2>Disable Chat</h2>
+                                                                            <div class="ts-custom-check">
+                                                                                <div class="onoffswitch">
+                                                                                    <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="example3">
+                                                                                    <label class="onoffswitch-label" for="example3">
+                                                                                        <span class="onoffswitch-inner"></span>
+                                                                                        <span class="onoffswitch-switch"></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="checkbox-setting-pro">
+                                                                        <div class="checkbox-title-pro">
+                                                                            <h2>Enable history</h2>
+                                                                            <div class="ts-custom-check">
+                                                                                <div class="onoffswitch">
+                                                                                    <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="example4">
+                                                                                    <label class="onoffswitch-label" for="example4">
+                                                                                        <span class="onoffswitch-inner"></span>
+                                                                                        <span class="onoffswitch-switch"></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="checkbox-setting-pro">
+                                                                        <div class="checkbox-title-pro">
+                                                                            <h2>Show charts</h2>
+                                                                            <div class="ts-custom-check">
+                                                                                <div class="onoffswitch">
+                                                                                    <input type="checkbox" name="collapsemenu" class="onoffswitch-checkbox" id="example7">
+                                                                                    <label class="onoffswitch-label" for="example7">
+                                                                                        <span class="onoffswitch-inner"></span>
+                                                                                        <span class="onoffswitch-switch"></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="checkbox-setting-pro">
+                                                                        <div class="checkbox-title-pro">
+                                                                            <h2>Update everyday</h2>
+                                                                            <div class="ts-custom-check">
+                                                                                <div class="onoffswitch">
+                                                                                    <input type="checkbox" name="collapsemenu" checked="" class="onoffswitch-checkbox" id="example2">
+                                                                                    <label class="onoffswitch-label" for="example2">
+                                                                                        <span class="onoffswitch-inner"></span>
+                                                                                        <span class="onoffswitch-switch"></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="checkbox-setting-pro">
+                                                                        <div class="checkbox-title-pro">
+                                                                            <h2>Global search</h2>
+                                                                            <div class="ts-custom-check">
+                                                                                <div class="onoffswitch">
+                                                                                    <input type="checkbox" name="collapsemenu" checked="" class="onoffswitch-checkbox" id="example6">
+                                                                                    <label class="onoffswitch-label" for="example6">
+                                                                                        <span class="onoffswitch-inner"></span>
+                                                                                        <span class="onoffswitch-switch"></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li>
+                                                                    <div class="checkbox-setting-pro">
+                                                                        <div class="checkbox-title-pro">
+                                                                            <h2>Offline users</h2>
+                                                                            <div class="ts-custom-check">
+                                                                                <div class="onoffswitch">
+                                                                                    <input type="checkbox" name="collapsemenu" checked="" class="onoffswitch-checkbox" id="example5">
+                                                                                    <label class="onoffswitch-label" for="example5">
+                                                                                        <span class="onoffswitch-inner"></span>
+                                                                                        <span class="onoffswitch-switch"></span>
+                                                                                    </label>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Header top area end-->
+            <!-- Breadcome start-->
+            <div class="breadcome-area mg-b-30 small-dn">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="breadcome-list shadow-reset">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="breadcome-heading">
+                                            <h2 style="text-transform:capitalize">Welcome  @Session["actorname"]</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Breadcome End-->
+
+            @RenderBody()
+        </div>
+    </div>
+
+    <!-- Footer Start-->
+
+    <div class="footer-copyright-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer-copy-right">
+                        <p>Copyright &#169; 2018 Colorlib All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End-->
+    <!-- jquery
+        ============================================ -->
+    <script src="~/Scripts/jquery-1.11.3.min.js"></script>
+    <!-- bootstrap JS
+        ============================================ -->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <!-- meanmenu JS
+        ============================================ -->
+    <script src="~/Scripts/jquery.meanmenu.js"></script>
+    <!-- mCustomScrollbar JS
+        ============================================ -->
+    <script src="~/Scripts/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- sticky JS
+        ============================================ -->
+    <script src="~/Scripts/jquery.sticky.js"></script>
+    <!-- scrollUp JS
+        ============================================ -->
+    <script src="~/Scripts/jquery.scrollUp.min.js"></script>
+    <!-- form validate JS
+        ============================================ -->
+    <script src="~/Scripts/jquery.form.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/form-active.js"></script>
+    <!-- main JS
+        ============================================ -->
+    <script src="~/Scripts/main.js"></script>
+
+
+
+
+</body>
+</html>
+

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<WebApplication2.Models.Project>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/homepage.cshtml";
+}
+
+@if (Session["roleid"].Equals("2")) 
+{
+    <form action="~/Post/Add_post" method="post">
+        <div class="form-group">
+            <label for="comment"><strong>بم تفكر</strong></label>
+            <textarea placeholder="Please Enter The Description OF The Project" name="pdesc" class="form-control" rows="5" cols="150" id="comment"></textarea>
+        </div>
+        <br />
+        <input type="submit" value="Add Post" class="btn btn-primary btn-lg" />
+
+    </form>
+}
+
+
+@foreach (var item in Model)
+{
+    <div class="tab_grid">
+        <div class="jobs-item with-thumb">
+            <div class="jobs_right">
+                <div class="date">@Html.DisplayFor(modelItem => item.Post_Time) <span>Jul</span></div>
+                <div class="date_desc">
+
+
+                    <h6 class="title">@Html.ActionLink("Details", "Details", new { id = item.Post_ID })</h6>
+                    <span class="meta">Envato, Sydney, AU</span>
+                </div>
+                <div class="clearfix"> </div>
+                <ul class="top-btns">
+                    <li><a href="#" class="fa fa-plus toggle"></a></li>
+                    <li><a href="#" class="fa fa-star"></a></li>
+                    <li><a href="#" class="fa fa-link"></a></li>
+                </ul>
+                <p class="description">@Html.DisplayFor(modelItem => item.Post_Description)</p>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+
+    <table>
+
+        <tr>
+            @if (Session["roleid"].Equals("2"))
+            {
+
+                if (int.Parse(Session["actorid"].ToString()) == item.Cust_ID)
+                {
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.Post_ID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.Post_ID })
+                    </td>
+                }
+            }
+        </tr>
+
+    </table>
+
+}
+

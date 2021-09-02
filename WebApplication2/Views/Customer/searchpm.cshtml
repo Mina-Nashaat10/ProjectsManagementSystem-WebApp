@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "searchpm";
+    Layout = "~/Views/Shared/_SearchLayout.cshtml";
+}
+
+<br />
+<br />
+<div class="container">
+    <!--
+    <div class="form-group">
+
+
+    </div>
+        -->
+    <input type="text" id="Search" placeholder="Search" class="form-control" />
+</div>
+<br />
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Project Manager ID</th>
+            <th>Project Manager Name</th>
+            <th></th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.allpms)
+        {
+            <tr class="Search">
+                <td>@item.PM_id</td>
+                <td>@item.PM_FirstName @item.PM_LastName</td>
+                @*<td>@Html.ActionLink("Send Notifications","searchpm",null,new { @class="btn btn-primary btn-group-xs"})</td>*@
+                @*<td><button class="btn btn-primary btn-group-xs">Send Notifications</button></td>*@
+                <td><a href="sendNotifications/@item.PM_id" class="btn btn-primary">Send Notifications</a></td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+
+<script src="~/Scripts/fjquery-1.10.2.min.js"></script>
+<script>
+    $(document).ready(function () {
+        function Contains(text_one, text_two) {
+            if (text_one.indexOf(text_two) != -1)
+                return true;
+        }
+        $("#Search").keyup(function(){
+
+            var searchText = $("#Search").val().toLowerCase();
+            $(".Search").each(function () {
+                if (!Contains($(this).text().toLowerCase(), searchText)) {
+
+                    $(this).hide();
+                }
+                else {
+
+                    $(this).show();
+                }
+            });
+        });
+    });
+</script>
+
+

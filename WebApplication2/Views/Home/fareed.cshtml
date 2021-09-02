@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewBag.Title = "Chart";
+    Layout = null;
+}
+
+<h2>fareed</h2>
+
+<!-- Bootstrap -->
+<link href="~/Content/bootstrap1.min.css" rel="stylesheet">
+<!-- Font Awesome -->
+<link href="~/Content/font-awesome1.min.css" rel="stylesheet">
+<!-- NProgress -->
+<link href="~/Content/nprogress.css" rel="stylesheet">
+<!-- Custom Theme Style -->
+<link href="~/Content/custom.min.css" rel="stylesheet">
+
+<div class="clearfix"></div>
+<div class="row">
+    <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Line Graph <small>Sessions</small></h2>
+                <ul class="nav navbar-right panel_toolbox">
+                    <li>
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+                
+            <div class="x_content">
+                @**@<canvas id="lineChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<!-- jQuery -->
+<script src="~/Scripts/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="~/Scripts/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="~/Scripts/fastclick.js"></script>
+<!-- NProgress -->
+<script src="~/Scripts/nprogress.js"></script>
+<!-- Chart.js -->
+<script src="~/Scripts/Chart.min.js"></script>
+<!-- Custom Theme Scripts -->
+<script src="~/Scripts/custom.min.js"></script>

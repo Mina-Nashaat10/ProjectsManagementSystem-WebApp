@@ -1,0 +1,1007 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PMSDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Ad_id" />
+          </Key>
+          <Property Name="Ad_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ad_FirstName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Ad_LastName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Ad_Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Ad_Password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Ad_Mobile" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Ad_JobDescription" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Ad_image" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="Comment_ID" />
+          </Key>
+          <Property Name="Comment_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Comment_Message" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Post_ID" Type="int" Nullable="false" />
+          <Property Name="Cust_ID" Type="int" Nullable="false" />
+          <Property Name="PM_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CurrentProject">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Post_ID" Type="int" Nullable="false" />
+          <Property Name="Post_Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PM_ID" Type="int" Nullable="false" />
+          <Property Name="TL_ID" Type="int" />
+          <Property Name="Cust_ID" Type="int" Nullable="false" />
+          <Property Name="Start_Date" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DeadLine" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Cust_ID" />
+          </Key>
+          <Property Name="Cust_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Cust_FirstName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Cust_LastName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Cust_Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Cust_Password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Cust_Mobile" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Cust_JobDescription" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Cust_image" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="JD">
+          <Key>
+            <PropertyRef Name="JD_ID" />
+          </Key>
+          <Property Name="JD_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JD_FirstName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="JD_LastName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="JD_Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="JD_Password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="JD_Mobile" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="JD_JobDescription" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="JD_image" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="JDCurProjects">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JD_id" Type="int" Nullable="false" />
+          <Property Name="Post_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="JDPreProjects">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JD_id" Type="int" Nullable="false" />
+          <Property Name="Post_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Notification">
+          <Key>
+            <PropertyRef Name="not_id" />
+          </Key>
+          <Property Name="not_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="p1_id" Type="int" Nullable="false" />
+          <Property Name="actor1_name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="P2_id" Type="int" />
+          <Property Name="actor2_name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="not_message" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="date" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Post_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PM">
+          <Key>
+            <PropertyRef Name="PM_id" />
+          </Key>
+          <Property Name="PM_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PM_FirstName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PM_LastName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PM_Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PM_Password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PM_Mobile" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PM_Jobdescription" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PM_image" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PreviousProjects">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Post_ID" Type="int" Nullable="false" />
+          <Property Name="Post_Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PM_ID" Type="int" Nullable="false" />
+          <Property Name="TL_ID" Type="int" Nullable="false" />
+          <Property Name="Cust_ID" Type="int" Nullable="false" />
+          <Property Name="is_complete" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="evaluation" Type="int" Nullable="false" />
+          <Property Name="EndData" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Post_ID" />
+          </Key>
+          <Property Name="Post_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Post_Description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Cust_ID" Type="int" Nullable="false" />
+          <Property Name="Post_Time" Type="date" Nullable="false" />
+          <Property Name="is_admin" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PM_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="rid" />
+          </Key>
+          <Property Name="rid" Type="int" Nullable="false" />
+          <Property Name="rname" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TL">
+          <Key>
+            <PropertyRef Name="TL_ID" />
+          </Key>
+          <Property Name="TL_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TL_FirstName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TL_LastName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TL_Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TL_Password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TL_Mobile" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TL_JobDescription" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TL_image" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Comment_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Cust_ID" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="Cust_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comment_PM">
+          <End Role="PM" Type="Self.PM" Multiplicity="1" />
+          <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PM">
+              <PropertyRef Name="PM_id" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="PM_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comment_Project">
+          <End Role="Project" Type="Self.Project" Multiplicity="1" />
+          <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Post_ID" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="Post_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurrentProject_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="CurrentProject" Type="Self.CurrentProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Cust_ID" />
+            </Principal>
+            <Dependent Role="CurrentProject">
+              <PropertyRef Name="Cust_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurrentProject_PM">
+          <End Role="PM" Type="Self.PM" Multiplicity="1" />
+          <End Role="CurrentProject" Type="Self.CurrentProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PM">
+              <PropertyRef Name="PM_id" />
+            </Principal>
+            <Dependent Role="CurrentProject">
+              <PropertyRef Name="PM_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurrentProject_TL">
+          <End Role="TL" Type="Self.TL" Multiplicity="0..1" />
+          <End Role="CurrentProject" Type="Self.CurrentProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TL">
+              <PropertyRef Name="TL_ID" />
+            </Principal>
+            <Dependent Role="CurrentProject">
+              <PropertyRef Name="TL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JDCurProjects_JD">
+          <End Role="JD" Type="Self.JD" Multiplicity="1" />
+          <End Role="JDCurProjects" Type="Self.JDCurProjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JD">
+              <PropertyRef Name="JD_ID" />
+            </Principal>
+            <Dependent Role="JDCurProjects">
+              <PropertyRef Name="JD_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JDPreProjects_JD">
+          <End Role="JD" Type="Self.JD" Multiplicity="1" />
+          <End Role="JDPreProjects" Type="Self.JDPreProjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JD">
+              <PropertyRef Name="JD_ID" />
+            </Principal>
+            <Dependent Role="JDPreProjects">
+              <PropertyRef Name="JD_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PreviousProjects_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="PreviousProjects" Type="Self.PreviousProjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Cust_ID" />
+            </Principal>
+            <Dependent Role="PreviousProjects">
+              <PropertyRef Name="Cust_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PreviousProjects_PM">
+          <End Role="PM" Type="Self.PM" Multiplicity="1" />
+          <End Role="PreviousProjects" Type="Self.PreviousProjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PM">
+              <PropertyRef Name="PM_id" />
+            </Principal>
+            <Dependent Role="PreviousProjects">
+              <PropertyRef Name="PM_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PreviousProjects_TL">
+          <End Role="TL" Type="Self.TL" Multiplicity="1" />
+          <End Role="PreviousProjects" Type="Self.PreviousProjects" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TL">
+              <PropertyRef Name="TL_ID" />
+            </Principal>
+            <Dependent Role="PreviousProjects">
+              <PropertyRef Name="TL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Project_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Project" Type="Self.Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Cust_ID" />
+            </Principal>
+            <Dependent Role="Project">
+              <PropertyRef Name="Cust_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Project_PM">
+          <End Role="PM" Type="Self.PM" Multiplicity="0..1" />
+          <End Role="Project" Type="Self.Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PM">
+              <PropertyRef Name="PM_id" />
+            </Principal>
+            <Dependent Role="Project">
+              <PropertyRef Name="PM_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PMSDBModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CurrentProject" EntityType="Self.CurrentProject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JD" EntityType="Self.JD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JDCurProjects" EntityType="Self.JDCurProjects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="JDPreProjects" EntityType="Self.JDPreProjects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Notification" EntityType="Self.Notification" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PM" EntityType="Self.PM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PreviousProjects" EntityType="Self.PreviousProjects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TL" EntityType="Self.TL" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Comment_Customer" Association="Self.FK_Comment_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Comment" EntitySet="Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comment_PM" Association="Self.FK_Comment_PM">
+            <End Role="PM" EntitySet="PM" />
+            <End Role="Comment" EntitySet="Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comment_Project" Association="Self.FK_Comment_Project">
+            <End Role="Project" EntitySet="Project" />
+            <End Role="Comment" EntitySet="Comment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrentProject_Customer" Association="Self.FK_CurrentProject_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="CurrentProject" EntitySet="CurrentProject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrentProject_PM" Association="Self.FK_CurrentProject_PM">
+            <End Role="PM" EntitySet="PM" />
+            <End Role="CurrentProject" EntitySet="CurrentProject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrentProject_TL" Association="Self.FK_CurrentProject_TL">
+            <End Role="TL" EntitySet="TL" />
+            <End Role="CurrentProject" EntitySet="CurrentProject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JDCurProjects_JD" Association="Self.FK_JDCurProjects_JD">
+            <End Role="JD" EntitySet="JD" />
+            <End Role="JDCurProjects" EntitySet="JDCurProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JDPreProjects_JD" Association="Self.FK_JDPreProjects_JD">
+            <End Role="JD" EntitySet="JD" />
+            <End Role="JDPreProjects" EntitySet="JDPreProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PreviousProjects_Customer" Association="Self.FK_PreviousProjects_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="PreviousProjects" EntitySet="PreviousProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PreviousProjects_PM" Association="Self.FK_PreviousProjects_PM">
+            <End Role="PM" EntitySet="PM" />
+            <End Role="PreviousProjects" EntitySet="PreviousProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PreviousProjects_TL" Association="Self.FK_PreviousProjects_TL">
+            <End Role="TL" EntitySet="TL" />
+            <End Role="PreviousProjects" EntitySet="PreviousProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Project_Customer" Association="Self.FK_Project_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Project" EntitySet="Project" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Project_PM" Association="Self.FK_Project_PM">
+            <End Role="PM" EntitySet="PM" />
+            <End Role="Project" EntitySet="Project" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PMSDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Ad_id" />
+          </Key>
+          <Property Name="Ad_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ad_FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ad_LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ad_Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ad_Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ad_Mobile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ad_JobDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ad_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="Comment_ID" />
+          </Key>
+          <Property Name="Comment_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Comment_Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Post_ID" Type="Int32" Nullable="false" />
+          <Property Name="Cust_ID" Type="Int32" Nullable="false" />
+          <Property Name="PM_ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_Comment_Customer" FromRole="Comment" ToRole="Customer" />
+          <NavigationProperty Name="PM" Relationship="Self.FK_Comment_PM" FromRole="Comment" ToRole="PM" />
+          <NavigationProperty Name="Project" Relationship="Self.FK_Comment_Project" FromRole="Comment" ToRole="Project" />
+        </EntityType>
+        <EntityType Name="CurrentProject">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Post_ID" Type="Int32" Nullable="false" />
+          <Property Name="Post_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PM_ID" Type="Int32" Nullable="false" />
+          <Property Name="TL_ID" Type="Int32" />
+          <Property Name="Cust_ID" Type="Int32" Nullable="false" />
+          <Property Name="Start_Date" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DeadLine" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_CurrentProject_Customer" FromRole="CurrentProject" ToRole="Customer" />
+          <NavigationProperty Name="PM" Relationship="Self.FK_CurrentProject_PM" FromRole="CurrentProject" ToRole="PM" />
+          <NavigationProperty Name="TL" Relationship="Self.FK_CurrentProject_TL" FromRole="CurrentProject" ToRole="TL" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="Cust_ID" />
+          </Key>
+          <Property Name="Cust_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Cust_FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cust_LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cust_Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cust_Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cust_Mobile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cust_JobDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cust_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Comments" Relationship="Self.FK_Comment_Customer" FromRole="Customer" ToRole="Comment" />
+          <NavigationProperty Name="CurrentProjects" Relationship="Self.FK_CurrentProject_Customer" FromRole="Customer" ToRole="CurrentProject" />
+          <NavigationProperty Name="PreviousProjects" Relationship="Self.FK_PreviousProjects_Customer" FromRole="Customer" ToRole="PreviousProjects" />
+          <NavigationProperty Name="Projects" Relationship="Self.FK_Project_Customer" FromRole="Customer" ToRole="Project" />
+        </EntityType>
+        <EntityType Name="JD">
+          <Key>
+            <PropertyRef Name="JD_ID" />
+          </Key>
+          <Property Name="JD_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JD_FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="JD_LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="JD_Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="JD_Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="JD_Mobile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="JD_JobDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="JD_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="JDCurProjects" Relationship="Self.FK_JDCurProjects_JD" FromRole="JD" ToRole="JDCurProjects" />
+          <NavigationProperty Name="JDPreProjects" Relationship="Self.FK_JDPreProjects_JD" FromRole="JD" ToRole="JDPreProjects" />
+        </EntityType>
+        <EntityType Name="JDCurProject">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JD_id" Type="Int32" Nullable="false" />
+          <Property Name="Post_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="JD" Relationship="Self.FK_JDCurProjects_JD" FromRole="JDCurProjects" ToRole="JD" />
+        </EntityType>
+        <EntityType Name="JDPreProject">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JD_id" Type="Int32" Nullable="false" />
+          <Property Name="Post_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="JD" Relationship="Self.FK_JDPreProjects_JD" FromRole="JDPreProjects" ToRole="JD" />
+        </EntityType>
+        <EntityType Name="Notification">
+          <Key>
+            <PropertyRef Name="not_id" />
+          </Key>
+          <Property Name="not_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="p1_id" Type="Int32" Nullable="false" />
+          <Property Name="actor1_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="P2_id" Type="Int32" />
+          <Property Name="actor2_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="not_message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="date" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Post_ID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PM">
+          <Key>
+            <PropertyRef Name="PM_id" />
+          </Key>
+          <Property Name="PM_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PM_FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PM_LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PM_Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PM_Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PM_Mobile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PM_Jobdescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PM_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Comments" Relationship="Self.FK_Comment_PM" FromRole="PM" ToRole="Comment" />
+          <NavigationProperty Name="CurrentProjects" Relationship="Self.FK_CurrentProject_PM" FromRole="PM" ToRole="CurrentProject" />
+          <NavigationProperty Name="PreviousProjects" Relationship="Self.FK_PreviousProjects_PM" FromRole="PM" ToRole="PreviousProjects" />
+          <NavigationProperty Name="Projects" Relationship="Self.FK_Project_PM" FromRole="PM" ToRole="Project" />
+        </EntityType>
+        <EntityType Name="PreviousProject">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Post_ID" Type="Int32" Nullable="false" />
+          <Property Name="Post_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PM_ID" Type="Int32" Nullable="false" />
+          <Property Name="TL_ID" Type="Int32" Nullable="false" />
+          <Property Name="Cust_ID" Type="Int32" Nullable="false" />
+          <Property Name="is_complete" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="evaluation" Type="Int32" Nullable="false" />
+          <Property Name="EndData" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_PreviousProjects_Customer" FromRole="PreviousProjects" ToRole="Customer" />
+          <NavigationProperty Name="PM" Relationship="Self.FK_PreviousProjects_PM" FromRole="PreviousProjects" ToRole="PM" />
+          <NavigationProperty Name="TL" Relationship="Self.FK_PreviousProjects_TL" FromRole="PreviousProjects" ToRole="TL" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Post_ID" />
+          </Key>
+          <Property Name="Post_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Post_Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cust_ID" Type="Int32" Nullable="false" />
+          <Property Name="Post_Time" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="is_admin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PM_ID" Type="Int32" />
+          <NavigationProperty Name="Comments" Relationship="Self.FK_Comment_Project" FromRole="Project" ToRole="Comment" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_Project_Customer" FromRole="Project" ToRole="Customer" />
+          <NavigationProperty Name="PM" Relationship="Self.FK_Project_PM" FromRole="Project" ToRole="PM" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="rid" />
+          </Key>
+          <Property Name="rid" Type="Int32" Nullable="false" />
+          <Property Name="rname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TL">
+          <Key>
+            <PropertyRef Name="TL_ID" />
+          </Key>
+          <Property Name="TL_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TL_FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TL_LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TL_Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TL_Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TL_Mobile" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TL_JobDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TL_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="CurrentProjects" Relationship="Self.FK_CurrentProject_TL" FromRole="TL" ToRole="CurrentProject" />
+          <NavigationProperty Name="PreviousProjects" Relationship="Self.FK_PreviousProjects_TL" FromRole="TL" ToRole="PreviousProjects" />
+        </EntityType>
+        <Association Name="FK_Comment_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Cust_ID" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="Cust_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comment_PM">
+          <End Role="PM" Type="Self.PM" Multiplicity="1" />
+          <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PM">
+              <PropertyRef Name="PM_id" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="PM_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comment_Project">
+          <End Role="Project" Type="Self.Project" Multiplicity="1" />
+          <End Role="Comment" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Project">
+              <PropertyRef Name="Post_ID" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="Post_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurrentProject_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="CurrentProject" Type="Self.CurrentProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Cust_ID" />
+            </Principal>
+            <Dependent Role="CurrentProject">
+              <PropertyRef Name="Cust_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurrentProject_PM">
+          <End Role="PM" Type="Self.PM" Multiplicity="1" />
+          <End Role="CurrentProject" Type="Self.CurrentProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PM">
+              <PropertyRef Name="PM_id" />
+            </Principal>
+            <Dependent Role="CurrentProject">
+              <PropertyRef Name="PM_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurrentProject_TL">
+          <End Role="TL" Type="Self.TL" Multiplicity="0..1" />
+          <End Role="CurrentProject" Type="Self.CurrentProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TL">
+              <PropertyRef Name="TL_ID" />
+            </Principal>
+            <Dependent Role="CurrentProject">
+              <PropertyRef Name="TL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PreviousProjects_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="PreviousProjects" Type="Self.PreviousProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Cust_ID" />
+            </Principal>
+            <Dependent Role="PreviousProjects">
+              <PropertyRef Name="Cust_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Project_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="1" />
+          <End Role="Project" Type="Self.Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Cust_ID" />
+            </Principal>
+            <Dependent Role="Project">
+              <PropertyRef Name="Cust_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JDCurProjects_JD">
+          <End Role="JD" Type="Self.JD" Multiplicity="1" />
+          <End Role="JDCurProjects" Type="Self.JDCurProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JD">
+              <PropertyRef Name="JD_ID" />
+            </Principal>
+            <Dependent Role="JDCurProjects">
+              <PropertyRef Name="JD_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_JDPreProjects_JD">
+          <End Role="JD" Type="Self.JD" Multiplicity="1" />
+          <End Role="JDPreProjects" Type="Self.JDPreProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="JD">
+              <PropertyRef Name="JD_ID" />
+            </Principal>
+            <Dependent Role="JDPreProjects">
+              <PropertyRef Name="JD_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PreviousProjects_PM">
+          <End Role="PM" Type="Self.PM" Multiplicity="1" />
+          <End Role="PreviousProjects" Type="Self.PreviousProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PM">
+              <PropertyRef Name="PM_id" />
+            </Principal>
+            <Dependent Role="PreviousProjects">
+              <PropertyRef Name="PM_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Project_PM">
+          <End Role="PM" Type="Self.PM" Multiplicity="0..1" />
+          <End Role="Project" Type="Self.Project" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PM">
+              <PropertyRef Name="PM_id" />
+            </Principal>
+            <Dependent Role="Project">
+              <PropertyRef Name="PM_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PreviousProjects_TL">
+          <End Role="TL" Type="Self.TL" Multiplicity="1" />
+          <End Role="PreviousProjects" Type="Self.PreviousProject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TL">
+              <PropertyRef Name="TL_ID" />
+            </Principal>
+            <Dependent Role="PreviousProjects">
+              <PropertyRef Name="TL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PMSDBEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
+          <EntitySet Name="Comments" EntityType="Self.Comment" />
+          <EntitySet Name="CurrentProjects" EntityType="Self.CurrentProject" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="JDs" EntityType="Self.JD" />
+          <EntitySet Name="JDCurProjects" EntityType="Self.JDCurProject" />
+          <EntitySet Name="JDPreProjects" EntityType="Self.JDPreProject" />
+          <EntitySet Name="Notifications" EntityType="Self.Notification" />
+          <EntitySet Name="PMs" EntityType="Self.PM" />
+          <EntitySet Name="PreviousProjects" EntityType="Self.PreviousProject" />
+          <EntitySet Name="Projects" EntityType="Self.Project" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TLs" EntityType="Self.TL" />
+          <AssociationSet Name="FK_Comment_Customer" Association="Self.FK_Comment_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Comment" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comment_PM" Association="Self.FK_Comment_PM">
+            <End Role="PM" EntitySet="PMs" />
+            <End Role="Comment" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comment_Project" Association="Self.FK_Comment_Project">
+            <End Role="Project" EntitySet="Projects" />
+            <End Role="Comment" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrentProject_Customer" Association="Self.FK_CurrentProject_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="CurrentProject" EntitySet="CurrentProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrentProject_PM" Association="Self.FK_CurrentProject_PM">
+            <End Role="PM" EntitySet="PMs" />
+            <End Role="CurrentProject" EntitySet="CurrentProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrentProject_TL" Association="Self.FK_CurrentProject_TL">
+            <End Role="TL" EntitySet="TLs" />
+            <End Role="CurrentProject" EntitySet="CurrentProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PreviousProjects_Customer" Association="Self.FK_PreviousProjects_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="PreviousProjects" EntitySet="PreviousProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Project_Customer" Association="Self.FK_Project_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Project" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JDCurProjects_JD" Association="Self.FK_JDCurProjects_JD">
+            <End Role="JD" EntitySet="JDs" />
+            <End Role="JDCurProjects" EntitySet="JDCurProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_JDPreProjects_JD" Association="Self.FK_JDPreProjects_JD">
+            <End Role="JD" EntitySet="JDs" />
+            <End Role="JDPreProjects" EntitySet="JDPreProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PreviousProjects_PM" Association="Self.FK_PreviousProjects_PM">
+            <End Role="PM" EntitySet="PMs" />
+            <End Role="PreviousProjects" EntitySet="PreviousProjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Project_PM" Association="Self.FK_Project_PM">
+            <End Role="PM" EntitySet="PMs" />
+            <End Role="Project" EntitySet="Projects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PreviousProjects_TL" Association="Self.FK_PreviousProjects_TL">
+            <End Role="TL" EntitySet="TLs" />
+            <End Role="PreviousProjects" EntitySet="PreviousProjects" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PMSDBModelStoreContainer" CdmEntityContainer="PMSDBEntities1">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="PMSDBModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="Ad_id" ColumnName="Ad_id" />
+                <ScalarProperty Name="Ad_FirstName" ColumnName="Ad_FirstName" />
+                <ScalarProperty Name="Ad_LastName" ColumnName="Ad_LastName" />
+                <ScalarProperty Name="Ad_Email" ColumnName="Ad_Email" />
+                <ScalarProperty Name="Ad_Password" ColumnName="Ad_Password" />
+                <ScalarProperty Name="Ad_Mobile" ColumnName="Ad_Mobile" />
+                <ScalarProperty Name="Ad_JobDescription" ColumnName="Ad_JobDescription" />
+                <ScalarProperty Name="Ad_image" ColumnName="Ad_image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="PMSDBModel.Comment">
+              <MappingFragment StoreEntitySet="Comment">
+                <ScalarProperty Name="Comment_ID" ColumnName="Comment_ID" />
+                <ScalarProperty Name="Comment_Message" ColumnName="Comment_Message" />
+                <ScalarProperty Name="Post_ID" ColumnName="Post_ID" />
+                <ScalarProperty Name="Cust_ID" ColumnName="Cust_ID" />
+                <ScalarProperty Name="PM_ID" ColumnName="PM_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CurrentProjects">
+            <EntityTypeMapping TypeName="PMSDBModel.CurrentProject">
+              <MappingFragment StoreEntitySet="CurrentProject">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Post_ID" ColumnName="Post_ID" />
+                <ScalarProperty Name="Post_Description" ColumnName="Post_Description" />
+                <ScalarProperty Name="PM_ID" ColumnName="PM_ID" />
+                <ScalarProperty Name="TL_ID" ColumnName="TL_ID" />
+                <ScalarProperty Name="Cust_ID" ColumnName="Cust_ID" />
+                <ScalarProperty Name="Start_Date" ColumnName="Start_Date" />
+                <ScalarProperty Name="DeadLine" ColumnName="DeadLine" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="PMSDBModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="Cust_ID" ColumnName="Cust_ID" />
+                <ScalarProperty Name="Cust_FirstName" ColumnName="Cust_FirstName" />
+                <ScalarProperty Name="Cust_LastName" ColumnName="Cust_LastName" />
+                <ScalarProperty Name="Cust_Email" ColumnName="Cust_Email" />
+                <ScalarProperty Name="Cust_Password" ColumnName="Cust_Password" />
+                <ScalarProperty Name="Cust_Mobile" ColumnName="Cust_Mobile" />
+                <ScalarProperty Name="Cust_JobDescription" ColumnName="Cust_JobDescription" />
+                <ScalarProperty Name="Cust_image" ColumnName="Cust_image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JDs">
+            <EntityTypeMapping TypeName="PMSDBModel.JD">
+              <MappingFragment StoreEntitySet="JD">
+                <ScalarProperty Name="JD_ID" ColumnName="JD_ID" />
+                <ScalarProperty Name="JD_FirstName" ColumnName="JD_FirstName" />
+                <ScalarProperty Name="JD_LastName" ColumnName="JD_LastName" />
+                <ScalarProperty Name="JD_Email" ColumnName="JD_Email" />
+                <ScalarProperty Name="JD_Password" ColumnName="JD_Password" />
+                <ScalarProperty Name="JD_Mobile" ColumnName="JD_Mobile" />
+                <ScalarProperty Name="JD_JobDescription" ColumnName="JD_JobDescription" />
+                <ScalarProperty Name="JD_image" ColumnName="JD_image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JDCurProjects">
+            <EntityTypeMapping TypeName="PMSDBModel.JDCurProject">
+              <MappingFragment StoreEntitySet="JDCurProjects">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="JD_id" ColumnName="JD_id" />
+                <ScalarProperty Name="Post_id" ColumnName="Post_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JDPreProjects">
+            <EntityTypeMapping TypeName="PMSDBModel.JDPreProject">
+              <MappingFragment StoreEntitySet="JDPreProjects">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="JD_id" ColumnName="JD_id" />
+                <ScalarProperty Name="Post_id" ColumnName="Post_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Notifications">
+            <EntityTypeMapping TypeName="PMSDBModel.Notification">
+              <MappingFragment StoreEntitySet="Notification">
+                <ScalarProperty Name="not_id" ColumnName="not_id" />
+                <ScalarProperty Name="p1_id" ColumnName="p1_id" />
+                <ScalarProperty Name="actor1_name" ColumnName="actor1_name" />
+                <ScalarProperty Name="P2_id" ColumnName="P2_id" />
+                <ScalarProperty Name="actor2_name" ColumnName="actor2_name" />
+                <ScalarProperty Name="not_message" ColumnName="not_message" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="Post_ID" ColumnName="Post_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PMs">
+            <EntityTypeMapping TypeName="PMSDBModel.PM">
+              <MappingFragment StoreEntitySet="PM">
+                <ScalarProperty Name="PM_id" ColumnName="PM_id" />
+                <ScalarProperty Name="PM_FirstName" ColumnName="PM_FirstName" />
+                <ScalarProperty Name="PM_LastName" ColumnName="PM_LastName" />
+                <ScalarProperty Name="PM_Email" ColumnName="PM_Email" />
+                <ScalarProperty Name="PM_Password" ColumnName="PM_Password" />
+                <ScalarProperty Name="PM_Mobile" ColumnName="PM_Mobile" />
+                <ScalarProperty Name="PM_Jobdescription" ColumnName="PM_Jobdescription" />
+                <ScalarProperty Name="PM_image" ColumnName="PM_image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PreviousProjects">
+            <EntityTypeMapping TypeName="PMSDBModel.PreviousProject">
+              <MappingFragment StoreEntitySet="PreviousProjects">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Post_ID" ColumnName="Post_ID" />
+                <ScalarProperty Name="Post_Description" ColumnName="Post_Description" />
+                <ScalarProperty Name="PM_ID" ColumnName="PM_ID" />
+                <ScalarProperty Name="TL_ID" ColumnName="TL_ID" />
+                <ScalarProperty Name="Cust_ID" ColumnName="Cust_ID" />
+                <ScalarProperty Name="is_complete" ColumnName="is_complete" />
+                <ScalarProperty Name="evaluation" ColumnName="evaluation" />
+                <ScalarProperty Name="EndData" ColumnName="EndData" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="PMSDBModel.Project">
+              <MappingFragment StoreEntitySet="Project">
+                <ScalarProperty Name="Post_ID" ColumnName="Post_ID" />
+                <ScalarProperty Name="Post_Description" ColumnName="Post_Description" />
+                <ScalarProperty Name="Cust_ID" ColumnName="Cust_ID" />
+                <ScalarProperty Name="Post_Time" ColumnName="Post_Time" />
+                <ScalarProperty Name="is_admin" ColumnName="is_admin" />
+                <ScalarProperty Name="PM_ID" ColumnName="PM_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="PMSDBModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="rid" ColumnName="rid" />
+                <ScalarProperty Name="rname" ColumnName="rname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="PMSDBModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TLs">
+            <EntityTypeMapping TypeName="PMSDBModel.TL">
+              <MappingFragment StoreEntitySet="TL">
+                <ScalarProperty Name="TL_ID" ColumnName="TL_ID" />
+                <ScalarProperty Name="TL_FirstName" ColumnName="TL_FirstName" />
+                <ScalarProperty Name="TL_LastName" ColumnName="TL_LastName" />
+                <ScalarProperty Name="TL_Email" ColumnName="TL_Email" />
+                <ScalarProperty Name="TL_Password" ColumnName="TL_Password" />
+                <ScalarProperty Name="TL_Mobile" ColumnName="TL_Mobile" />
+                <ScalarProperty Name="TL_JobDescription" ColumnName="TL_JobDescription" />
+                <ScalarProperty Name="TL_image" ColumnName="TL_image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

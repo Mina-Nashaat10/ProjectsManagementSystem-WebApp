@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "add_cust";
+    Layout = "~/Views/Shared/_SearchLayout.cshtml";
+}
+
+<br />
+<br />
+<br />
+<br />
+<form action="add_cust" method="post">
+
+    <div class="input-group-lg">
+        <div class="form-line">
+            <label style="color:white; font-size:18px">First Name</label>
+            <input type="text" class="form-control" name="firstname" placeholder="Enter First Name" required autofocus>
+        </div>
+    </div>
+    <br />
+    <div class="input-group-lg">
+        <div class="form-line">
+            <label style="color:white; font-size:18px">Last Name</label>
+            <input type="text" class="form-control" name="lastname" placeholder="Enter Last Name" required autofocus>
+        </div>
+    </div>
+    <br />
+    <div class="input-group-lg">
+        <div class="form-line">
+            <label style="color:white; font-size:18px">E-mail</label>
+            <input type="email" class="form-control" name="email" placeholder="Enter E-mail" required autofocus>
+        </div>
+    </div>
+    <br />
+    <div class="input-group-lg">
+        <div class="form-line">
+            <label style="color:white; font-size:18px">Password</label>
+            <input type="password" class="form-control" name="password" placeholder="Enter Password" required autofocus>
+        </div>
+    </div>
+    <br />
+    <div class="input-group-lg">
+        <div class="form-line">
+            <label style="color:white; font-size:18px">Mobile</label>
+            <input type="number" class="form-control" name="mobile" placeholder="Enter Mobile" required autofocus>
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        <label style="color:white; font-size:18px"><strong>Job Description</strong></label>
+        <textarea placeholder="Enter The Job Description " name="job" class="form-control" rows="5" cols="150" id="comment"></textarea>
+    </div>
+
+    <div class="form-group">
+        <div class="form-line">
+            <label style="color:white; font-size:18px"><strong>Photo</strong></label>
+            <input type="file" class="form-control" name="photo" minlength="6" placeholder="Photo Path" required>
+        </div>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-primary btn-lg" style="height:50px;width:200px;margin-left:550px;">Add</button>
+</form>

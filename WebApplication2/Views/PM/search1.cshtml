@@ -1,0 +1,67 @@
+﻿
+@{
+    ViewBag.Title = "Search OF TL";
+    Layout = "~/Views/Shared/_SearchLayout.cshtml";
+}
+
+<br />
+<br />
+<div class="container">
+    <!--
+    <div class="form-group">
+        
+        
+    </div>
+        -->
+    <input type="text" id="Search" placeholder="Search" class="form-control" />
+</div>
+<br />
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Team_Leader_ID</th>
+            <th>Team_Leader_Name</th>
+            <th></th>
+        </tr>
+
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.all)
+        {
+        <tr class="Search">
+            <td>@item.TL_ID</td>
+            <td>@item.TL_FirstName @item.TL_LastName</td>
+            <td><a href="sendNotificationToTeamLeader/@item.TL_ID" class="btn btn-primary">Send Notifications</a></td>
+            
+
+    @*<td><button class="btn btn-primary btn-group-xs">Send Notification</button></td>*@
+        </tr>
+        }
+    </tbody>
+
+</table>
+
+
+<script src="~/Scripts/fjquery-1.10.2.min.js"></script>
+<script>
+    $(document).ready(function () {
+        function Contains(text_one, text_two) {
+            if (text_one.indexOf(text_two) != -1)
+                return true;
+        }
+        $("#Search").keyup(function(){
+
+            var searchText = $("#Search").val().toLowerCase();
+            $(".Search").each(function () {
+                if (!Contains($(this).text().toLowerCase(), searchText)) {
+
+                    $(this).hide();
+                }
+                else {
+
+                    $(this).show();
+                }
+            });
+        });
+    });
+</script>
